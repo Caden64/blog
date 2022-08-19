@@ -1,0 +1,12 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<html>
+    <title>{frontmatter.title}</title>
+    <div class="h-screen bg-neutral-700 text-center grid items-center">
+        <main class="prose-h1:text-sky-600 prose-p:text-white prose-p:py-20">
+            <slot />
+        </main>
+    </div>
+</html>
