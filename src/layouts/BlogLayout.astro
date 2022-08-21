@@ -1,0 +1,17 @@
+---
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+---
+
+<html>
+    <title>{frontmatter.title}</title>
+    <div
+        class="h-screen bg-neutral-700 text-center grid items-center prose-p:py-10"
+    >
+        <main
+            class="prose-h1:text-sky-600 prose-p:text-white prose-p:items-center text-3xl prose-p:text-2xl prose-h2:text-green-500"
+        >
+            <slot />
+        </main>
+    </div>
+</html>
