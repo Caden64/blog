@@ -1,0 +1,24 @@
+---
+export interface Props {
+    pageName: string;
+}
+
+const { pageName } = Astro.props as Props;
+---
+
+<html>
+    <header
+        class="flex items-center justify-between px-4 py-2 bg-pickled-bluewood-600 text-white"
+    >
+        <button
+            ><img
+                src="/assets/website_header.png"
+                width="135"
+                height="110"
+                alt="caden 32"
+            />
+        </button>
+        <h1>{pageName}</h1>
+        <h1>Other pages / posts</h1>
+    </header>
+</html>
