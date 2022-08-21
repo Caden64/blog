@@ -2,10 +2,9 @@
 import "../styles/global.css";
 export interface Props {
 	title: string;
-	pageName: string;
 }
 
-const { title, pageName } = Astro.props as Props;
+const { title } = Astro.props as Props;
 import Header from "../components/Header.astro";
 ---
 
@@ -19,10 +18,10 @@ import Header from "../components/Header.astro";
 		<meta name="description" content="my to be blog" />
 		<title>{title}</title>
 	</head>
-	<body class="h-screen bg-pickled-bluewood-500">
-		<Header pageName={pageName} />
-		<div class="text-2xl text-white">
-			<slot />
+	<body class="bg-white">
+		<Header />
+		<div class="flex text-2xl text-black grid-rows-1">
+			<slot class="h-screen" />
 		</div>
 	</body>
 </html>

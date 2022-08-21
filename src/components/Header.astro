@@ -1,14 +1,9 @@
 ---
-export interface Props {
-    pageName: string;
-}
-
-const { pageName } = Astro.props as Props;
 ---
 
 <html>
     <header
-        class="flex items-center justify-between px-4 py-2 bg-pickled-bluewood-600 text-white"
+        class="flex items-center justify-start px-4 py-2 bg-white text-pickled-bluewood-700 text-2xl"
     >
         <button
             ><img
@@ -18,7 +13,5 @@ const { pageName } = Astro.props as Props;
                 alt="caden 32"
             />
         </button>
-        <h1>{pageName}</h1>
-        <h1>Other pages / posts</h1>
     </header>
 </html>
