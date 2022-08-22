@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+const githubUsername = "winnietthepooh";
+const twitterUsername = "Caden32Com";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,6 +18,36 @@ import Layout from "../layouts/Layout.astro";
 					class="p-4 rounded-[300px] bg-black"
 				/>
 			</div>
+			<div
+				class="p-10 grid grid-cols-2 place-items-center justify-between"
+			>
+				<a
+					rel="nofollow noopener"
+					href={`https://twitter.com/${twitterUsername}`}
+					target="_blank"
+					title={`${twitterUsername} on Github`}
+				>
+					<img
+						src="assets/2021 Twitter logo - white.png"
+						alt="Caden's avatar"
+						class="p-4 object-scale-down h-40 w-40"
+					/>
+				</a>
+
+				<a
+					rel="nofollow noopener"
+					href={`https://github.com/${githubUsername}`}
+					target="_blank"
+					title={`${githubUsername} on Github`}
+				>
+					<img
+						src="assets/GitHub-Mark-Light-120px-plus.png"
+						alt="Caden's avatar"
+						class="p-4"
+					/>
+				</a>
+			</div>
 		</div>
 	</main>
+	<div class="p-40">Test</div>
 </Layout>
