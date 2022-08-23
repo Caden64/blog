@@ -9,8 +9,15 @@ let posts = await Astro.glob("../pages/posts/*.md");
             return (
                 <div class="py-8">
                     {post.frontmatter.url}
-                    <h1 class="py-4">{post.frontmatter.title}</h1>
-                    <p class="text-2xl">{post.frontmatter.preview}</p>
+                    <a
+                        rel="nofollow noopener"
+                        href={`https://caden32.com${post.url}`}
+                        target="_blank"
+                        title={`${post.frontmatter.description}`}
+                    >
+                        <h1 class="py-4">{post.frontmatter.title}</h1>
+                        <p class="text-2xl">{post.frontmatter.preview}</p>
+                    </a>
                 </div>
             );
         })
