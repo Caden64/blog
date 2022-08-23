@@ -19,11 +19,13 @@ import Footer from "../components/Footer.astro";
 		<meta name="description" content="my to be blog" />
 		<title>{title}</title>
 	</head>
-	<body class="bg-white">
+	<body class="bg-white h-screen grid grid-cols-1">
 		<Header />
-		<div>
+		<div class="">
 			<slot />
 		</div>
-		<Footer />
+		<div class="fixed bottom-0 w-full">
+			<Footer />
+		</div>
 	</body>
 </html>
