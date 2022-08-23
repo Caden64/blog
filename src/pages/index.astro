@@ -1,21 +1,20 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import Posts from "../components/Posts.astro";
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
 ---
 
 <Layout title="Caden's Blog.">
 	<main class="text-center grid grid-cols-2 pb-4 gap-2">
-		<h1 class="pt-4 text-2xl">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-			aliquip ex ea commodo consequat. Duis aute irure dolor in
-			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-			culpa qui officia deserunt mollit anim id est laborum.
-		</h1>
+		<div class="">
+			<h1 class="pt-4 text-2xl">
+				There used to be latin here but my friend tranlated it so.
+			</h1>
+			<h2 class="text-xl">Scroll for blog</h2>
+		</div>
+
 		<div
 			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-4 text-white justify-center h-[85vh] w-[85%]"
 		>
@@ -69,4 +68,7 @@ const twitterUsername = "Caden32Com";
 			</div>
 		</div>
 	</main>
+	<div class="mt-16 overflow-auto text-black h-screen text-center">
+		<Posts />
+	</div>
 </Layout>

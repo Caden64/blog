@@ -1,0 +1,17 @@
+---
+let posts = await Astro.glob("../pages/posts/*.md");
+---
+
+<div class="text-2xl w-4/5">
+    {
+        posts.map((post) => {
+            return (
+                <div class="py-4">
+                    <a href={post.frontmatter.url} class="text-gray-600">
+                        {post.frontmatter.title}
+                    </a>
+                </div>
+            );
+        })
+    }
+</div>
