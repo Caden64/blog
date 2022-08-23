@@ -9,10 +9,9 @@ const twitterUsername = "Caden32Com";
 <Layout title="Caden's Blog.">
 	<main class="text-center grid grid-cols-2 pb-4 gap-2">
 		<div class="">
-			<h1 class="pt-4 text-2xl">
-				There used to be latin here but my friend tranlated it so.
-			</h1>
-			<h2 class="text-xl">Scroll for blog</h2>
+			<div class="pt-4">
+				<Posts />
+			</div>
 		</div>
 
 		<div
@@ -22,7 +21,7 @@ const twitterUsername = "Caden32Com";
 				<img
 					src="assets/memoji_laptop.png"
 					alt="Caden's avatar"
-					class="p-4 rounded-[300px] bg-black"
+					class="p-4 rounded-[300px] h-full w-full bg-black"
 				/>
 			</div>
 			<div
@@ -62,13 +61,10 @@ const twitterUsername = "Caden32Com";
 					<img
 						src="assets/GitHub-Mark-120px-plus.png"
 						alt="Caden's avatar"
-						class="p-4"
+						class="p-4 h-full w-full"
 					/>
 				</a>
 			</div>
 		</div>
 	</main>
-	<div class="mt-16 overflow-auto text-black h-screen text-center">
-		<Posts />
-	</div>
 </Layout>
