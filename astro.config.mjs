@@ -8,5 +8,11 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://caden32.com',
-  integrations: [tailwind(), sitemap(), image(), vue()]
+  integrations: [tailwind(), sitemap(), image(), vue()],
+  markdown: {
+    shikiConfig: {
+      theme: 'min-light',
+      langs: ['go'],
+    }
+  }
 });

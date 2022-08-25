@@ -7,9 +7,13 @@ import Footer from "../components/Footer.astro";
 
 <html>
     <title>{frontmatter.title}</title>
+    {frontmatter.file}
     <Header />
+    <h1 class="text-center underline decoration-pickel-me-pink-500 text-2xl">
+        {frontmatter.title}
+    </h1>
     <main
-        class="prose-h1:text-sky-600 prose-p:text-rose-500 prose-p:items-center text-3xl prose-p:text-2xl prose-h2:text-green-500 h-screen bg-white text-center grid items-center prose-p:py-10"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl"
     >
         <slot />
     </main>
