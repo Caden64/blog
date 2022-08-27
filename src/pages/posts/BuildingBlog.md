@@ -11,14 +11,5 @@ preview: I get so excited when hearing about new technology and I decided I shou
 This is a post written in Markdown.
 
 ### test
-```go
-package main
 
-import "fmt"
-
-func main() {
-    test := "ok"
-    fmt.Println(test)
-}
-```
 # TL;DR
