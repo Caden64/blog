@@ -2,9 +2,18 @@
 import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import Posts from "../components/Posts.astro";
+import PostLists from "../components/PostLists.astro";
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
 const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
+
+let allPosts = await Astro.glob("../data/*.md");
+allPosts = allPosts.sort((a, b) => {
+	new Date(b.frontmatter.date).valueOf() -
+		new Date(a.frontmatter.data).valueOf();
+});
+
+const recentPosts = allPosts.slice(0, 2);
 ---
 
 <MainLayout title="Caden's Blog">
@@ -13,7 +22,7 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 	>
 		<div class="">
 			<div class="pt-4">
-				<Posts />
+				<PostLists posts={recentPosts} />
 			</div>
 		</div>
 
@@ -71,10 +80,10 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 		</div>
 	</main>
 	<main
-		class="show-mobile h-screen grid grid-rows-2 gap-y-[36rem] text-center mb-[30rem]"
+		class="show-mobile h-screen grid grid-rows-2 gap-y-2 text-center mb-[30rem]"
 	>
 		<div
-			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-4 mx-1 text-white justify-center h-[85vh] w-[98%] mb-4"
+			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-4 mx-1 text-white justify-center h-max w-[98%] mb-4"
 		>
 			<div class="grid place-items-center pt-4">
 				<img
@@ -125,8 +134,8 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 				</a>
 			</div>
 		</div>
-		<div class="">
-			<Posts />
+		<div class="pt-4 text-6xl">
+			<PostLists posts={recentPosts} />
 		</div>
 	</main>
 </MainLayout>

@@ -1,0 +1,9 @@
+---
+import PostData from "./PostData.astro";
+
+const { posts } = Astro.props;
+---
+
+<section>
+    {posts.map((p) => <PostData post={p} />)}
+</section>
