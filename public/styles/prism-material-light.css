@@ -19,6 +19,7 @@ pre[class*="language-"] {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
+    height: max-content;
 }
 
 code[class*="language-"]::-moz-selection,

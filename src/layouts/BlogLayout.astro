@@ -18,9 +18,11 @@ const backgroundColor = "rgb(24 121 78)";
         {frontmatter.title}
     </h1>
     <main
-        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0"
     >
         <slot />
     </main>
-    <Footer />
+    <div class="fixed bottom-0 w-full">
+        <Footer />
+    </div>
 </html>

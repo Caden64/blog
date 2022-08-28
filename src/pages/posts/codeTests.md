@@ -3,7 +3,7 @@ layout: ../../layouts/BlogLayout.astro
 title: Testing Code blocks
 author: Caden
 description: Code block testing
-preview: A Place to Test what Code blocks look like to make sure the css is correct
+preview: A place to test what code blocks look like to make sure the css is correct
 ---
 
 ```go
