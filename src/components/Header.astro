@@ -1,4 +1,7 @@
 ---
+let link = import.meta.env.DEV
+    ? "http://localhost:3000"
+    : "https://caden32.com";
 ---
 
 <html>
@@ -6,8 +9,10 @@
         class="flex items-center justify-start px-4 py-2 bg-white text-pickled-bluewood-700 text-2xl"
     >
         <button
-            ><span class="underline decoration-pickel-me-pink-400">C</span>aden
-            32
+            ><a href={link}
+                ><span class="underline decoration-pickel-me-pink-400">C</span
+                >aden 32</a
+            >
         </button>
     </header>
 </html>

@@ -2,18 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-        --shiki-color-text: #ff00f2;
-        --shiki-color-background: #ff00f2;
-        --shiki-token-constant: ##ff00f2;
-        --shiki-token-string: #ff00f2;
-        --shiki-token-comment: #ff00f2;
-        --shiki-token-keyword: #ff00f2;
-        --shiki-token-parameter: #ff00f2;
-        --shiki-token-function: #ff00f2;
-        --shiki-token-string-expression: #ff00f2;
-        --shiki-token-punctuation: #ff00f2;
-        --shiki-token-link: #ff00f2;
+@media only screen and (max-device-width: 480px) {
+    .show-mobile {
+        display: grid;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-device-width: 481px) {
+    .show-mobile {
+        display: none;
+    }
+
+    .hide-mobile {
+        display: grid;
     }
 }
