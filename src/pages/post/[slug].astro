@@ -1,0 +1,24 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+export async function getStaticPaths() {
+    let allPosts = await Astro.glob("../../data/*.md");
+    let allSortedPosts = allPosts.sort(
+        (a, b) =>
+            new Date(b.frontmatter.date).valueOf() -
+            new Date(a.frontmatter.date).valueOf()
+    );
+    return allSortedPosts.map((post) => {
+        return {
+            params: { slug: post.frontmatter.slug },
+            props: { ...post },
+        };
+    });
+}
+// const content = Astro.props;
+const { Content, frontmatter } = Astro.props;
+const title = frontmatter.title;
+const description = "Astromnl blog post about " + frontmatter.title;
+---
+
+<BlogLayout><Content /></BlogLayout>

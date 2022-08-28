@@ -3,26 +3,49 @@ import "../styles/global.css";
 const { frontmatter } = Astro.props;
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-const foregroundColor = "rgb(221 243 228)";
-const backgroundColor = "rgb(24 121 78)";
 ---
 
-<html>
-    <head>
-        <title>{frontmatter.title}</title>
-        <link rel="stylesheet" href="/styles/prism-material-light.css" />
-    </head>
+<div>
+    <title>{frontmatter.title}</title>
+    <link rel="stylesheet" href="/styles/prism-material-light.css" />
 
     <Header />
     <h1 class="text-center underline decoration-pickel-me-pink-500 text-2xl">
         {frontmatter.title}
     </h1>
     <main
-        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0 hide-mobile"
+    >
+        <slot />
+    </main>
+
+    <main
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile prose-code:text-6xl"
     >
         <slot />
     </main>
     <div class="fixed bottom-0 w-full">
         <Footer />
     </div>
-</html>
+</div>
+<style>
+    @media only screen and (max-device-width: 480px) {
+        .show-mobile {
+            display: grid;
+        }
+
+        .hide-mobile {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-device-width: 481px) {
+        .show-mobile {
+            display: none;
+        }
+
+        .hide-mobile {
+            display: grid;
+        }
+    }
+</style>

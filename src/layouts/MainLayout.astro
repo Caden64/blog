@@ -1,0 +1,24 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import GlobalStyles from "../components/GlobalStyles.astro";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="stylesheet" href="/styles/global.css" />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <div class="fixed bottom-0 w-full">
+            <Footer />
+        </div>
+    </body>
+</html>

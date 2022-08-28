@@ -1,5 +1,5 @@
 ---
-let posts = await Astro.glob("../pages/posts/*.md");
+let posts = await Astro.glob("../data/*.md");
 import.meta.env.DEV;
 let link = import.meta.env.DEV
     ? "http://localhost:3000"
@@ -13,6 +13,7 @@ let link = import.meta.env.DEV
             return (
                 <div class="py-8">
                     {post.frontmatter.url}
+                    {console.log(link)}
                     <a
                         rel="nofollow noopener"
                         href={`${link}${post.url}`}
