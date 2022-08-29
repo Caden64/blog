@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
-import Posts from "../components/Posts.astro";
 import PostLists from "../components/PostLists.astro";
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
@@ -20,10 +19,8 @@ const recentPosts = allPosts.slice(0, 2);
 	<main
 		class="hide-mobile text-center grid grid-cols-2 pb-4 gap-2 overflow-auto"
 	>
-		<div class="">
-			<div class="pt-4">
-				<PostLists posts={recentPosts} />
-			</div>
+		<div class="pt-4 text-6xl">
+			<PostLists posts={recentPosts} />
 		</div>
 
 		<div
@@ -83,7 +80,7 @@ const recentPosts = allPosts.slice(0, 2);
 		class="show-mobile h-screen grid grid-rows-2 gap-y-2 text-center mb-[30rem]"
 	>
 		<div
-			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-4 mx-1 text-white justify-center h-max w-[98%] mb-4"
+			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-8 mx-1 text-white justify-center h-max w-[99%] mb-4"
 		>
 			<div class="grid place-items-center pt-4">
 				<img

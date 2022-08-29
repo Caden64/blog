@@ -4,6 +4,7 @@ author: Caden
 description: Code block testing
 preview: A place to test what code blocks look like to make sure the css is correct
 date: 2022-8-28
+slug: "code"
 ---
 
 ```go

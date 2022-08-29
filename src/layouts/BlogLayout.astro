@@ -1,17 +1,18 @@
 ---
 import "../styles/global.css";
-const { frontmatter } = Astro.props;
+
+const { title } = Astro.props;
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <div>
-    <title>{frontmatter.title}</title>
+    <title>{title}</title>
     <link rel="stylesheet" href="/styles/prism-material-light.css" />
 
     <Header />
     <h1 class="text-center underline decoration-pickel-me-pink-500 text-2xl">
-        {frontmatter.title}
+        {title}
     </h1>
     <main
         class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0 hide-mobile"
@@ -20,7 +21,7 @@ import Footer from "../components/Footer.astro";
     </main>
 
     <main
-        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile prose-code:text-6xl"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile"
     >
         <slot />
     </main>

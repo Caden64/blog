@@ -4,11 +4,10 @@ pre[class*="language-"] {
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    word-wrap: normal;
+    word-wrap: wrap;
     color: #262626;
     background: rgb(255, 255, 255);
     font-family: Roboto Mono, monospace;
-    font-size: 1em;
     line-height: 1.5em;
 
     -moz-tab-size: 4;
@@ -20,6 +19,7 @@ pre[class*="language-"] {
     -ms-hyphens: none;
     hyphens: none;
     height: max-content;
+    font-size: 2.25rem;
 }
 
 code[class*="language-"]::-moz-selection,

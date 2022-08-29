@@ -5,5 +5,11 @@ const { posts } = Astro.props;
 ---
 
 <section>
-    {posts.map((p) => <PostData post={p} />)}
+    {
+        posts.map((p) => (
+            <div class="py-8">
+                <PostData post={p} />
+            </div>
+        ))
+    }
 </section>

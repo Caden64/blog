@@ -1,5 +1,6 @@
 ---
 import BlogLayout from "../../layouts/BlogLayout.astro";
+import "../../styles/global.css";
 
 export async function getStaticPaths() {
     let allPosts = await Astro.glob("../../data/*.md");
@@ -17,8 +18,8 @@ export async function getStaticPaths() {
 }
 // const content = Astro.props;
 const { Content, frontmatter } = Astro.props;
-const title = frontmatter.title;
-const description = "Astromnl blog post about " + frontmatter.title;
 ---
 
-<BlogLayout><Content /></BlogLayout>
+<BlogLayout title={frontmatter.title}>
+    <Content />
+</BlogLayout>
