@@ -2,11 +2,13 @@
 let link = import.meta.env.DEV
     ? "http://localhost:3000"
     : "https://caden32.com";
+
+let blog = link + "/blog";
 ---
 
 <html>
     <header
-        class="flex items-center justify-start px-4 py-2 bg-white text-pickled-bluewood-700 text-2xl"
+        class="flex items-center justify-between px-4 py-2 bg-white text-pickled-bluewood-700 text-2xl"
     >
         <button
             ><a href={link}
@@ -14,5 +16,9 @@ let link = import.meta.env.DEV
                 >aden 32</a
             >
         </button>
+        <div class="text-underline grid grid-cols-2 gap-8">
+            <button><a href={link}>Home</a></button>
+            <button><a href={blog}>Blog</a></button>
+        </div>
     </header>
 </html>

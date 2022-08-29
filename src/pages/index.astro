@@ -1,7 +1,7 @@
 ---
-import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import PostLists from "../components/PostLists.astro";
+
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
 const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
@@ -17,7 +17,7 @@ const recentPosts = allPosts.slice(0, 2);
 
 <MainLayout title="Caden's Blog">
 	<main
-		class="hide-mobile text-center grid grid-cols-2 pb-4 gap-2 overflow-auto"
+		class="text-center grid grid-cols-2 pb-4 gap-2 overflow-auto visible sm:invisible"
 	>
 		<div class="pt-4 text-6xl">
 			<PostLists posts={recentPosts} />
@@ -77,7 +77,7 @@ const recentPosts = allPosts.slice(0, 2);
 		</div>
 	</main>
 	<main
-		class="show-mobile h-screen grid grid-rows-2 gap-y-2 text-center mb-[30rem]"
+		class="h-screen grid grid-rows-2 gap-y-2 text-center mb-[30rem] invisible sm:visible"
 	>
 		<div
 			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-8 mx-1 text-white justify-center h-max w-[99%] mb-4"
