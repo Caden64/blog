@@ -1,20 +1,27 @@
 ---
-import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
-import Posts from "../components/Posts.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import PostLists from "../components/PostLists.astro";
+
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
 const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
+
+let allPosts = await Astro.glob("../data/*.md");
+allPosts = allPosts.sort((a, b) => {
+	new Date(b.frontmatter.date).valueOf() -
+		new Date(a.frontmatter.data).valueOf();
+});
+
+const recentPosts = allPosts.slice(0, 2);
 ---
 
-<Layout title="Caden's Blog">
+<MainLayout title="Caden's Blog">
 	<main
-		class="text-center grid grid-cols-2 pb-4 gap-2 hide-mobile overflow-auto"
+		class="text-center grid grid-cols-2 pb-4 gap-2 overflow-auto hide-mobile"
 	>
-		<div class="">
-			<div class="pt-4">
-				<Posts />
-			</div>
+		<div class="pt-4 text-6xl">
+			NO
+			<PostLists posts={recentPosts} />
 		</div>
 
 		<div
@@ -22,7 +29,7 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 		>
 			<div class="grid place-items-center pt-4">
 				<img
-					src="assets/memoji_laptop.png"
+					src="assets/memoji.png"
 					alt="Caden's avatar"
 					class="p-4 rounded-[300px] bg-black"
 				/>
@@ -71,14 +78,14 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 		</div>
 	</main>
 	<main
-		class="show-mobile h-screen grid grid-rows-2 gap-y-[36rem] text-center mb-[30rem]"
+		class="h-screen grid grid-rows-2 gap-y-[28rem] text-center mb-[30rem] smd:hidden"
 	>
 		<div
-			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-4 mx-1 text-white justify-center h-[85vh] w-[98%] mb-4"
+			class="bg-pickled-bluewood-500 rounded-3xl pl-8 pr-8 mx-1 text-white justify-center h-max w-[99%] mb-4"
 		>
 			<div class="grid place-items-center pt-4">
 				<img
-					src="assets/memoji_laptop.png"
+					src="assets/memoji.png"
 					alt="Caden's avatar"
 					class="p-4 rounded-[300px] bg-black"
 				/>
@@ -125,11 +132,11 @@ const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 				</a>
 			</div>
 		</div>
-		<div class="">
-			<Posts />
+		<div class="pt-4 text-6xl">
+			<PostLists posts={recentPosts} />
 		</div>
 	</main>
-</Layout>
+</MainLayout>
 
 <style>
 	@media only screen and (max-device-width: 480px) {
