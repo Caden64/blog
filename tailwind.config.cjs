@@ -66,6 +66,10 @@ module.exports = {
 				"shiki-token-link": "var(--shiki-token-link)",
 
 			},
+			screens: {
+				'smd': '481px',
+				'ssm': '480px',
+			}
 		},
 	},
 }
