@@ -7,14 +7,16 @@ function formatDate(date: Date) {
 ---
 
 <article>
-    <h3 class="text-6xl">
+    <h3
+        class="text-6xl dark:bg-black dark:text-white underline decoration-pickel-me-pink-500"
+    >
         <a href={`/post/${post.frontmatter.slug}`}>{post.frontmatter.title}</a>
     </h3>
     <div>
-        <p class="text-4xl">
+        <p class="text-4xl dark:bg-black dark:text-white">
             {post.frontmatter.description}
         </p>
-        <p class="text-3xl">
+        <p class="text-3xl dark:bg-black dark:text-white">
             <span>Published on</span>
             <time datetime={post.frontmatter.date}>
                 {formatDate(post.frontmatter.date)}

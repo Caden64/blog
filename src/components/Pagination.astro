@@ -2,7 +2,9 @@
 const { page } = Astro.props;
 ---
 
-<div class="text-4xl">
+<div
+    class="text-4xl dark:bg-black dark:text-white underline decoration-pickel-me-pink-500"
+>
     {
         page.url.prev && (
             <a class="font-size-1" href={page.url.prev} title="Go to Previous">

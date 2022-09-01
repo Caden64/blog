@@ -20,6 +20,8 @@
     "vue": "^3.2.30"
   },
   "dependencies": {
-    "@tailwindcss/typography": "tailwindcss/typography"
+    "@nanostores/vue": "^0.6.0",
+    "@tailwindcss/typography": "tailwindcss/typography",
+    "nanostores": "^0.6.0"
   }
 }
