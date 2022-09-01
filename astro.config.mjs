@@ -7,12 +7,6 @@ export default defineConfig({
   site: 'https://caden32.com',
   integrations: [tailwind(), sitemap()],
   markdown: {
-    /*
-    shikiConfig: {
-      theme: 'github-light',
-      langs: ['go']
-    }
-    */
     syntaxHighlight: 'prism',
   }
 });

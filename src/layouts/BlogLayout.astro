@@ -8,7 +8,6 @@ import Footer from "../components/Footer.astro";
 
 <div class="" id="blog">
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/prism-material-light.css" />
 
     <Header />
     <h1 class="text-center underline decoration-pickel-me-pink-500 text-2xl">
@@ -50,3 +49,39 @@ import Footer from "../components/Footer.astro";
         }
     }
 </style>
+<script lang="js" is:inline>
+    let check = function (click) {
+        var link = document.createElement("link");
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        if (!sessionStorage.getItem("old")) {
+            if (document.documentElement.classList.contains("dark")) {
+                sessionStorage.setItem("old", "dark");
+                link.href = "/styles/dark.css";
+            } else {
+                link.href = "/styles/prism-material-light.css";
+
+                sessionStorage.setItem("old", "light");
+            }
+        }
+        if (document.documentElement.classList.contains("dark")) {
+            link.href = "/styles/dark.css";
+        } else {
+            link.href = "/styles/prism-material-light.css";
+        }
+        document.getElementsByTagName("head")[0].appendChild(link);
+        if (click) {
+            window.location.reload();
+        }
+    };
+
+    var themeToggleBtn = document.getElementById("theme-toggle");
+
+    console.log(themeToggleBtn);
+
+    themeToggleBtn.addEventListener("click", function () {
+        check(true);
+    });
+
+    window.onload = check(false);
+</script>

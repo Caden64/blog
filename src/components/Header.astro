@@ -8,6 +8,7 @@ let blog = link + "/blog";
 
 <html>
     <header
+        id="header"
         class="flex items-center justify-between smd:px-4 py-2 bg-white text-pickled-bluewood-700 text-2xl mr-1 dark:bg-black dark:text-white w-full"
     >
         <button
@@ -16,7 +17,7 @@ let blog = link + "/blog";
                 >aden 32</a
             >
         </button>
-        <div class="text-underline grid grid-cols-3 gap-8">
+        <div class="text-underline grid grid-cols-3 gap-8" id="links">
             <button><a href={link}>Home</a></button>
             <button><a href={blog}>Blog</a></button>
             <button
