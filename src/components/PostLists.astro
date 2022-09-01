@@ -7,7 +7,7 @@ const { posts } = Astro.props;
 <section>
     {
         posts.map((p) => (
-            <div class="py-8">
+            <div class="py-8 dark:bg-black dark:text-white">
                 <PostData post={p} />
             </div>
         ))

@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<div class="" id="blog">
+<div class="dark:bg-black dark:text-white" id="blog">
     <title>{title}</title>
 
     <Header />
@@ -14,13 +14,13 @@ import Footer from "../components/Footer.astro";
         {title}
     </h1>
     <main
-        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0 hide-mobile"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0 hide-mobile dark:bg-black dark:text-white"
     >
         <slot />
     </main>
 
     <main
-        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile smd:hidden"
+        class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile smd:hidden dark:bg-black dark:text-white"
     >
         <slot />
     </main>
