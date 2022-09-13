@@ -22,7 +22,7 @@ const { page } = Astro.props;
 
 <MainLayout title="Blog" description="All blog posts!">
     <div class="text-center mb-16">
-        <h1 class="text-8xl dark:bg-black dark:text-white">All Posts</h1>
+        <h1 class="text-5xl dark:bg-black dark:text-white">All Posts</h1>
         <PostLists posts={page.data} />
         <Pagination page={page} />
     </div>

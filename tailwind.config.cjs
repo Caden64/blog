@@ -70,6 +70,9 @@ module.exports = {
 			screens: {
 				'smd': '481px',
 				'ssm': '480px',
+			},
+			fontFamily: {
+				'FiraCode': ['"Fira Code"','mono']
 			}
 		},
 	},
