@@ -3,7 +3,7 @@ title: Rust For Rustaceans Book Report
 author: Caden Rothzeid
 description: the juicy blog post about a book on advanced rust
 preview: Rust For Rustaceans Book Report
-date: 2022-9-13
+date: 2022-10-10
 slug: "rust"
 ---
 
@@ -16,13 +16,28 @@ Now think of a organized heap of papers there's a specific papers you know is in
 take some time to use
 as you don't have immediate access to it.
 
-# exsample
-
-I really like using Markdown.
-
-I think I'll use it to format all of my documents from now on.
-<span>'</span>
 ```rust
-
-// does prism have a problem with this '
+    // this is an example of high level model of memory usage
+    
+    
+    // this is a defined variable with no value
+    let mut x;
+    
+    
+    this code if un-comented would fail when run because there is no value to the variable x
+    // assert_eq!(x, 42);
+    
+    x = 42;
+    // now x has an value attached to it
+     
+    let y = &x;
+    // y now is a pointer to x
+    
+    // a techniqe called shadowing is common practice in rust this means we use the same name for a different variable
+    
+    let x = 96;
+    
+     assert_eq!(x, 96);
+     assert_eq!(*y, 42);
+    // this code works because y points to the value of orginal x 42 while x has been redefined to 96
 ```
