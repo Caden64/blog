@@ -1,43 +1,94 @@
 ---
-title: Rust For Rustaceans Book Report
+title: Independent Reading project
 author: Caden Rothzeid
-description: the juicy blog post about a book on advanced rust
-preview: Rust For Rustaceans Book Report
-date: 2022-10-10
-slug: "rust"
+description: the juicy blog post about a book on advanced Rust
+preview: Memory mangament is a difficult thing for programs to get right whether they realize it or not.
+date: 2022-12-10
+slug: "irp"
 ---
 
-# Memory Terminology
+# How to think about memory
 
-Think of a stack of papers that you can only add and remove from the top sheet it would be very annoying if you needed 
-to put a set of papers 50 papers in thats what scope helps with scope is the ability to have sub-stacks of papers
-connected by conspiracy yarn.
-Now think of a organized heap of papers there's a specific papers you know is in the heap you can grab it, but it will
-take some time to use
-as you don't have immediate access to it.
+Computer programs are complex is an underrated statement. There are two common ways to look at memory. Lets look at the first way. A variable is a name that has a value attached to it. lets looks at Python code to explain.
 
-```rust
-    // this is an example of high level model of memory usage
-    
-    
-    // this is a defined variable with no value
-    let mut x;
-    
-    
-    this code if un-comented would fail when run because there is no value to the variable x
-    // assert_eq!(x, 42);
-    
-    x = 42;
-    // now x has an value attached to it
-     
-    let y = &x;
-    // y now is a pointer to x
-    
-    // a techniqe called shadowing is common practice in rust this means we use the same name for a different variable
-    
-    let x = 96;
-    
-     assert_eq!(x, 96);
-     assert_eq!(*y, 42);
-    // this code works because y points to the value of orginal x 42 while x has been redefined to 96
+# Python memory example
+
+```Python
+var1 = 12
+var2 = var1
+var2 = var2 + 1
 ```
+
+The example above may raise some questions because when var2 has one added to it does the var1 get 1 added to it, or maybe a stays the same but var2 now equals 13 and var1 stays the same. the latter is what happens which makes since the value of var1 is the value of var 2 at the start but var 2 is then mutated to have one added to the current value which started as the same value of var1.
+
+The second model has a variable name that points to the value called a pointer which can be shared by other variables
+
+# Rust memory example
+
+```Rust
+let  mut var1 = 12;
+let var2 = &mut var1;
+*var2 = var2.clone() + 1;
+```
+This example shows var1 being initalized as mutatable which is a feature in Rust with a value of 12 just like the Python example. When var2 is initalized it has a mutatable pointer to the value of var1 meaning a change to var2 changes var1 which is a substancial diffrence between the Python example and the Rust example.
+
+# Memory Management
+
+Memory management is a difficult thing for programs to get right whether they realize it or not.
+Rust the prominently featured programing language of the book "Rust for Rustaceans" by Jon Gjengset is known for its complexity to its users. Other programing obstruct this complexity from its users such as Python.
+
+# Why???
+
+Why are these different solutions to a problem that has been documented since 1965. Lets go into some examples of bad Rust to see what Rust does differently!
+
+# Bad Code
+
+```Rust
+fn main() {
+    let purchase: f32 = 3.0;
+    let sales_tax: f32 = 1.05;
+
+    // purchase is not allowed to change without modifiers when created
+
+    purchase = purchase * sales_tax;
+
+    let purchase = purchase.to_string();
+
+    // add_dollar_sign takes ownership of the variable purchase
+
+    let dollar_sign_purchase = add_dollar_sign(purchase);
+
+    println!("purchase: {} turning into {}", purchase, dollar_sign_purchase)
+}
+
+fn add_dollar_sign(s: String) -> String {
+    format!("${}", s)
+}
+
+```
+# Fixed Code
+
+```Rust
+fn main() {
+    let mut purchase: f32 = 3.0;
+    let sales_tax: f32 = 1.05;
+
+    // purchase can now be mutated
+
+    purchase = purchase * sales_tax;
+
+    let purchase = purchase.to_string();
+
+    // add_dollar_sign now borrows the variable purchase
+
+    let dollar_sign_purchase = add_dollar_sign(purchase);
+
+    println!("purchase: {} turning into {}", purchase, dollar_sign_purchase)
+}
+
+fn add_dollar_sign(s: &String) -> String {
+    format!("${}", s)
+}
+
+```
+
