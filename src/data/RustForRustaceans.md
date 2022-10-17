@@ -1,94 +1,29 @@
 ---
-title: Independent Reading project
-author: Caden Rothzeid
-description: the juicy blog post about a book on advanced Rust
+title: The start of Rust for Rustaceans
+author: What counts as a real name
+description: THe start of rust for Rustaceans
 preview: Memory mangament is a difficult thing for programs to get right whether they realize it or not.
-date: 2022-12-10
-slug: "irp"
+date: 2022-15-10
+slug: "irp1"
 ---
+# Disclaimer part 1 of the greatest thing since sliced bread.
 
-# How to think about memory
+# Learning Rust is hard.
 
-Computer programs are complex is an underrated statement. There are two common ways to look at memory. Lets look at the first way. A variable is a name that has a value attached to it. lets looks at Python code to explain.
+So I've been reading a book called "Rust for Rustaceans" by Jon Gjengst
 
-# Python memory example
+# What made my head EXPLODE!!!
 
-```Python
-var1 = 12
-var2 = var1
-var2 = var2 + 1
-```
+Memory management is something I've never really thought of before coming from Python, JavaScript, and Go all programing languages with a Garbage Collector.
+For the uninitiated a Garbage Collector frees unused resources from the program insted of the programmer manually telling the program what to free. Rust handles things differently because it has a borrow checker meaning every resource must have one owner and no more.
 
-The example above may raise some questions because when var2 has one added to it does the var1 get 1 added to it, or maybe a stays the same but var2 now equals 13 and var1 stays the same. the latter is what happens which makes since the value of var1 is the value of var 2 at the start but var 2 is then mutated to have one added to the current value which started as the same value of var1.
+## What if another part of your program wants that resource?
 
-The second model has a variable name that points to the value called a pointer which can be shared by other variables
+The resource can be borrowed once or many times depending on how its borrows
 
-# Rust memory example
+#### What does that mean bro??????
 
-```Rust
-let  mut var1 = 12;
-let var2 = &mut var1;
-*var2 = var2.clone() + 1;
-```
-This example shows var1 being initalized as mutatable which is a feature in Rust with a value of 12 just like the Python example. When var2 is initalized it has a mutatable pointer to the value of var1 meaning a change to var2 changes var1 which is a substancial diffrence between the Python example and the Rust example.
+A resource if allowed to be changed while being borrowed can only be borrowed once before it has to be returned before being borrowed again. Otherwise it can be borrowed as many times as designated.
 
-# Memory Management
-
-Memory management is a difficult thing for programs to get right whether they realize it or not.
-Rust the prominently featured programing language of the book "Rust for Rustaceans" by Jon Gjengset is known for its complexity to its users. Other programing obstruct this complexity from its users such as Python.
-
-# Why???
-
-Why are these different solutions to a problem that has been documented since 1965. Lets go into some examples of bad Rust to see what Rust does differently!
-
-# Bad Code
-
-```Rust
-fn main() {
-    let purchase: f32 = 3.0;
-    let sales_tax: f32 = 1.05;
-
-    // purchase is not allowed to change without modifiers when created
-
-    purchase = purchase * sales_tax;
-
-    let purchase = purchase.to_string();
-
-    // add_dollar_sign takes ownership of the variable purchase
-
-    let dollar_sign_purchase = add_dollar_sign(purchase);
-
-    println!("purchase: {} turning into {}", purchase, dollar_sign_purchase)
-}
-
-fn add_dollar_sign(s: String) -> String {
-    format!("${}", s)
-}
-
-```
-# Fixed Code
-
-```Rust
-fn main() {
-    let mut purchase: f32 = 3.0;
-    let sales_tax: f32 = 1.05;
-
-    // purchase can now be mutated
-
-    purchase = purchase * sales_tax;
-
-    let purchase = purchase.to_string();
-
-    // add_dollar_sign now borrows the variable purchase
-
-    let dollar_sign_purchase = add_dollar_sign(purchase);
-
-    println!("purchase: {} turning into {}", purchase, dollar_sign_purchase)
-}
-
-fn add_dollar_sign(s: &String) -> String {
-    format!("${}", s)
-}
-
-```
+# So what I'm a C dev and don't care
 
