@@ -1,7 +1,7 @@
 ---
 title: The start of Rust for Rustaceans
 author: What counts as a real name
-description: THe start of rust for Rustaceans
+description: The start of rust for Rustaceans
 preview: Memory mangament is a difficult thing for programs to get right whether they realize it or not.
 date: 2022-15-10
 slug: "irp1"
@@ -26,4 +26,6 @@ The resource can be borrowed once or many times depending on how its borrows
 A resource if allowed to be changed while being borrowed can only be borrowed once before it has to be returned before being borrowed again. Otherwise it can be borrowed as many times as designated.
 
 # So what I'm a C dev and don't care
+
+## types
 
