@@ -1,4 +1,18 @@
 ---
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD84-D50yWU-xO_3ThhVJcmvN9KN2gUWoo",
+    authDomain: "caden32web.firebaseapp.com",
+    projectId: "caden32web",
+    storageBucket: "caden32web.appspot.com",
+    messagingSenderId: "966768184064",
+    appId: "1:966768184064:web:112bf1d0c6e81f0f2ac1e5",
+    measurementId: "G-N0RGVRRBFV",
+};
+
+const app = initializeApp(firebaseConfig);
+
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";

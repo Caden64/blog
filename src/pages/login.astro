@@ -1,0 +1,16 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+const auth = getAuth();
+let user;
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        user = user;
+    }
+});
+---
+
+<MainLayout title="login">
+    <div class="justify-center"></div>
+</MainLayout>

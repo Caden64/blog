@@ -22,6 +22,7 @@
   "dependencies": {
     "@nanostores/vue": "^0.6.0",
     "@tailwindcss/typography": "tailwindcss/typography",
+    "firebase": "^9.13.0",
     "nanostores": "^0.6.0"
   }
 }
