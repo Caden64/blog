@@ -57,7 +57,7 @@ fn add(x: i32, y: i32) -> i32 {
 }
 ```
 
-The rust code does not run beacuse the variable x and y have been *moved* / are now in the ownership of the function add and are *deallocated* when it returns
+The rust code does not run because the variable x and y have been *moved* / are now in the ownership of the function add and are *deallocated* when it returns
 
 ```rust
 fn main() {
@@ -75,5 +75,5 @@ fn add(x: &i32, y: &i32) -> i32 {
 }
 ```
 
-This code now works becuse x and y are now being borrowed with the added syntax of *&* insted of being owned by the add function
+This code now works because x and y are now being borrowed with the added syntax of *&* insted of being owned by the add function
 
