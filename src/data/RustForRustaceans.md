@@ -20,7 +20,7 @@ Rust is a programing language that typically is in 10% of the speed of C and C++
 
 1. Memory safety
 2. Traits (inheritance)
-3. Concurrency
+3. Error Handling
 
 ### Memory Safety 
 
