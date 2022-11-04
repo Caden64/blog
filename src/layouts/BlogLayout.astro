@@ -36,13 +36,10 @@ import MainLayout from "./MainLayout.astro";
         </main>
 
         <main
-            class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-4 overflow-auto scroll-m-0 show-mobile smd:hidden dark:bg-black dark:text-white"
+            class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 mb-2 overflow-auto scroll-m-0 show-mobile smd:hidden dark:bg-black dark:text-white"
         >
             <slot />
         </main>
-        <div class="fixed bottom-0 w-full">
-            <Footer />
-        </div>
     </div>
     <style>
         @media only screen and (max-device-width: 480px) {
