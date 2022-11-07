@@ -1,6 +1,10 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {
+    getAuth,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const auth = getAuth();
 let user;
@@ -12,8 +16,20 @@ onAuthStateChanged(auth, (user) => {
 ---
 
 <MainLayout title="login">
-    <div class="content-center ml-48 mr-48 mt-16">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <script lang="js">
+        function validate() {
+            console.log("worked???");
+            let input = document.getElementById("username");
+            var email =
+                /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]) /;
+            return input.value.match(email);
+        }
+    </script>
+    <div class="content-center md:ml-48 md:mr-48 md:mt-16 md:mb-24">
+        <form
+            class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            onsubmit="validate"
+        >
             <div class="mb-4">
                 <label
                     class="block text-gray-700 text-sm font-bold mb-2"
@@ -48,20 +64,150 @@ onAuthStateChanged(auth, (user) => {
             <div class="flex items-center justify-between">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button"
+                    type="submit"
                 >
-                    Sign In
+                    Sign Up
                 </button>
-                <a
-                    class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                    href="#"
-                >
-                    Forgot Password?
-                </a>
             </div>
         </form>
+        <div id="requirements">
+            <h3>Password must contain the following:</h3>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">
+                A <b>capital (uppercase)</b> letter
+            </p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="symbol" class="invalid">A <b>special character</b></p>
+            <p id="length" class="invalid">Minimum <b>12 character</b></p>
+        </div>
         <p class="text-center text-gray-500 text-xs">
             &copy;2022 winnietthepooh. All rights reserved.
         </p>
     </div>
 </MainLayout>
+
+<style>
+    input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+    }
+
+    input[type="submit"] {
+        background-color: #04aa6d;
+        color: white;
+    }
+
+    .container {
+        background-color: #f1f1f1;
+        padding: 20px;
+    }
+
+    #message {
+        display: none;
+        background: #f1f1f1;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+    }
+
+    #message p {
+        padding: 10px 35px;
+        font-size: 18px;
+    }
+
+    .valid {
+        color: green;
+    }
+
+    .valid:before {
+        position: relative;
+        left: -35px;
+        content: "✔";
+    }
+
+    .invalid {
+        color: red;
+    }
+
+    .invalid:before {
+        position: relative;
+        left: -35px;
+        content: "✖";
+    }
+</style>
+
+<script lang="js">
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    let symbol = document.getElementById("symbol");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function () {
+        document.getElementById("requirements").style.display = "block";
+    };
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function () {
+        document.getElementById("requirements").style.display = "none";
+    };
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function () {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if (myInput.value.length >= 12) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+
+        var symbols = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.@\/]/;
+        if (myInput.value.match(symbols)) {
+            symbol.classList.remove("invalid");
+            symbol.classList.add("valid");
+        } else {
+            symbol.classList.remove("valid");
+            symbol.classList.add("invalid");
+        }
+    };
+</script>

@@ -3,7 +3,7 @@ title: The start of Rust for Rustaceans
 author: What counts as a real name
 description: The start of Rust for Rustaceans
 preview: Memory management is a difficult thing for programs to get right whether they realize it or not.
-date: 2022-15-10
+date: 11/7/2022
 slug: "irp1"
 ---
 ## Disclaimer part 1 of the greatest thing since sliced bread
@@ -22,14 +22,16 @@ Rust is a programing language that typically is in 10% of the speed of C and C++
 2. Traits (inheritance)
 3. Error Handling
 
-### Memory Safety 
+### Memory Safety
 
-#### The Borrow Checker!!!
+#### The Borrow Checker
 
 The borrow checker in Rust works because every variable in Rust has to have an *owner* however every variable can be *borrowed* out
 
 ##### Example
+
 Here is working Python code that returns the sum of two numbers
+
 ```python
 x = 12
 y = 12 
@@ -42,6 +44,7 @@ print(f'x: {x}, y: {y}, z: {z}')
 ```
 
 Here is the same code in rust
+
 ```rust
 fn main() {
     let x = 12;
@@ -76,4 +79,3 @@ fn add(x: &i32, y: &i32) -> i32 {
 ```
 
 This code now works because x and y are now being borrowed with the added syntax of *&* insted of being owned by the add function
-
