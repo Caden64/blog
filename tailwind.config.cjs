@@ -72,8 +72,11 @@ module.exports = {
 				'ssm': '480px',
 			},
 			fontFamily: {
-				'FiraCode': ['"Fira Code"','mono']
+				'FiraCode': ['"Fira Code"', 'mono']
 			}
 		},
 	},
+	plugins: [
+		require('@tailwindcss/forms'),
+	]
 }
