@@ -1,11 +1,13 @@
 ---
-title: The start of Rust for Rustaceans
+title: The boring bit
 author: What counts as a real name
 description: The start of Rust for Rustaceans
 preview: Rust has a lot of amazing features
 date: 11/7/2022
 slug: "irp1"
 ---
+
+***Python is used as an example of high level programing in comparison to the low level system programing Rust is designed for***
 
 ## What makes Rust different
 
@@ -27,7 +29,7 @@ The borrow checker in Rust works because every variable in Rust has to have an *
 
 Here is working Python code that returns the sum of two numbers
 
-```python
+```Python
 # x and y defined here
 x = 12
 y = 12 
@@ -39,9 +41,9 @@ z = add(x, y)
 print(f'x: {x}, y: {y}, z: {z}')
 ```
 
-Here is the same code in rust
+Here is the same code in Rust
 
-```rust
+```Rust
 fn main() {
 // x and y defined here
 
@@ -60,9 +62,11 @@ fn add(x: i32, y: i32) -> i32 {
 }
 ```
 
-The rust code does not compile because the variable x and y have been *moved* / are now in the ownership of the function add and are *unallocated* when it returns
+The Rust code does not compile because the variable x and y have been *moved* / are now in the ownership of the function add and are *unallocated* when it returns
 
-```rust
+This connection between the memory safety of Rust and the memory safety of Python shows the high level concepts in both of them.
+
+```Rust
 fn main() {
     let x = 12;
     let y = 12;
@@ -80,11 +84,13 @@ fn add(x: &i32, y: &i32) -> i32 {
 
 This code now works because x and y are now being borrowed with the added syntax of *&* instead of being owned by the add function
 
+this *borrowing* is what makes Rust so remarkable compared to Python
+
 ## Lifetimes
 
-Lifetimes for the uninitiated are how long a variable "exists" inside a program. The following example is taken from [rust by example](https://doc.rust-lang.org/rust-by-example/scope/lifetime.html).
+Lifetimes for the uninitiated are how long a variable "exists" inside a program. This is important because if a variable is borrowed and the lifetime ends before its needed variable will be unallocated and the program will crash. This is why lifetimes are important in all programing languages and Rust does not allow you to shoot yourself in the foot like in low level languages or receive slowdowns in high level languages with a garbage collector.
 
-```rust
+```Rust
 fn main() {
     let i = 3; // Lifetime for `i` starts.
     {                                                    
@@ -106,11 +112,9 @@ fn main() {
 
 ### Explicit Annotation
 
-Explicit annotation is a way to put in lifetimes manually rather than letting Rust handle it for us. Lifetimes must outlive the scope they are in. The following example is taken from [rust by example](https://doc.rust-lang.org/rust-by-example/scope/lifetime/explicit.html).
+Explicit annotation is a way to put in lifetimes manually rather than letting Rust handle it for us. Lifetimes must outlive the scope they are in.
 
-```rust
-
-```rust
+```Rust
 fn display_references<'a,'b>(x: &'a i32, y: &'b i32) {
     println!("x equals {}, Y equals {}", x, y)
 }
@@ -125,15 +129,15 @@ fn main() {
 
 ```
 
-#### Lastly, lifetimes can only become shorter
+The reason no python code is shown is because python does not have user definable lifetimes like in rust.
 
 ### Traits
 
-Traits allow for many thing in rust to have a common interface.
+Traits allow for many thing in Rust to have a common interface much like classes in Python albiet without inheritance.
 
-## [Run example](https://play.rust-lang.org/?version=stable&mode=release&edition=2021&gist=df896c921d5ec37e9fab9a8a86bc81d9)
+## [Run example](https://play.Rust-lang.org/?version=stable&mode=release&edition=2021&gist=df896c921d5ec37e9fab9a8a86bc81d9)
 
-```rust
+```Rust
 struct Dog { napping: bool, name: &'static str }
 
 struct Rabbit { speed: i32, name: &'static str }
@@ -211,3 +215,44 @@ fn main() {
 }
 
 ```
+
+```Python
+class Animal:
+    def __init__(self, name:str, noise: str):
+        self.name = name
+        self.noise = noise
+
+    def talk(self):
+        print(f'{self.name} says {self.noise()}')
+
+    def noise(self):
+        return self.noise
+
+class dog(Animal):
+    def __init__(self, noise: str):
+        super().__init__(noise, 'Woof!')
+
+    def bark(self):
+        print(f'{self.name} barks')   
+
+class Rabbit(Animal):
+    def __init__(self, noise: str):
+        super().__init__(noise, 'Squeak!')
+
+    def talk(self):
+        print(f'{self.name} pauses briefly... {self.noise()}')
+
+def main():
+    animal = Animal('cat', 'Meow')
+    dog = dog('Mac')
+    rabbit = Rabbit('Bugs-Bunny')
+
+    dog.bark()
+    dog.talk()
+
+    rabbit.talk() 
+
+    animal.talk()
+```
+
+this is a very simple example of how traits work in Rust versus classes in Python
