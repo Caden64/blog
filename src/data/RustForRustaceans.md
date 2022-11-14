@@ -9,7 +9,7 @@ slug: "irp1"
 
 ## What makes Rust different
 
-Rust is a programing language that typically is in 10% of the speed of C and C++ programing languages used extensively by the Linux Foundation and Microsoft while being as memory safe as possible.
+Rust is a programing language that typically is in 10% of the speed of C and C++ programing languages used extensively by the Linux Foundation and Microsoft while being as memory safe with little opportunity to shoot yourself in the foot.
 
 ### What does Rust do exactly?
 
@@ -60,7 +60,7 @@ fn add(x: i32, y: i32) -> i32 {
 }
 ```
 
-The rust code does not run because the variable x and y have been *moved* / are now in the ownership of the function add and are *deallocated* when it returns
+The rust code does not compile because the variable x and y have been *moved* / are now in the ownership of the function add and are *unallocated* when it returns
 
 ```rust
 fn main() {
@@ -131,6 +131,8 @@ fn main() {
 
 Traits allow for many thing in rust to have a common interface.
 
+## [Run example](https://play.rust-lang.org/?version=stable&mode=release&edition=2021&gist=df896c921d5ec37e9fab9a8a86bc81d9)
+
 ```rust
 struct Dog { napping: bool, name: &'static str }
 
@@ -144,7 +146,7 @@ trait Animal {
     fn noise(&self) -> &'static str;
 
     fn talk(&self) {
-        println!("{} says {}", self.name, self.noise)
+        println!("{} says {}", self.name(), self.noise())
     }
 }
 // specific things that only dogs do in this example
@@ -196,9 +198,9 @@ impl Animal for Rabbit {
 }
 
 fn main() {
-    dog = Dog::new("Mac");
+    let dog = Dog::new("Mac");
 
-    rabbit = Rabbit::new("Bugs-Bunny");
+    let rabbit = Rabbit::new("Bugs-Bunny");
 
     // the dog has bark as well as talk while rabbit only has talk
     dog.bark();

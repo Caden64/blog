@@ -13,6 +13,7 @@ export default defineConfig({
   site: 'https://caden32.com',
   integrations: [tailwind(), sitemap()],
   markdown: {
-    syntaxHighlight: 'prism'
+    // syntaxHighlight: 'prism',
+    extendDefaultPlugins: true,
   }
 });

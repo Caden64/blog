@@ -1,22 +1,7 @@
 ---
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD84-D50yWU-xO_3ThhVJcmvN9KN2gUWoo",
-    authDomain: "caden32web.firebaseapp.com",
-    projectId: "caden32web",
-    storageBucket: "caden32web.appspot.com",
-    messagingSenderId: "966768184064",
-    appId: "1:966768184064:web:112bf1d0c6e81f0f2ac1e5",
-    measurementId: "G-N0RGVRRBFV",
-};
-
-const app = initializeApp(firebaseConfig);
-
 import "../styles/global.css";
 
 const { title, description } = Astro.props;
-import Footer from "../components/Footer.astro";
 import MainLayout from "./MainLayout.astro";
 ---
 
@@ -29,9 +14,7 @@ import MainLayout from "./MainLayout.astro";
         >
             {title}
         </h1>
-        <main
-            class="h-screen bg-white grid ml-28 prose-h1:ml-40 prose-p:ml-64 text-2xl mb-4 overflow-auto scroll-m-0 hide-mobile dark:bg-black dark:text-white prose-headings:p-2 prose-p:p2"
-        >
+        <main>
             <slot />
         </main>
 
