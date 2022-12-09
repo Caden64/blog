@@ -13,9 +13,11 @@ Rustaceans goes over the Rust programing language in extreme detail
 acting as a sequel to "The Rust Programing language" by Steve Klabnik,
 and Carol Nichols.
 
+
 The main character Jon Gjengset documents everything he has learned
 after completing his PHD at MIT with a paper on distributed systems and
 currently works at Amazon for internal Rust tooling.
+
 
 His journey starts with going over the basic implementation details of
 core elements of Rust like the borrow-checker. These details are largely
@@ -36,6 +38,7 @@ official [Rust API
 checklist](https://Rust-lang.github.io/api-guidelines/) for developers
 to follow.
 
+
 Error handling was the next step Jon wanted to describe best practices
 as error handling it is vital for making reliable systems that affect
 the real world. Jon specifically states that error handling is a topic
@@ -51,6 +54,7 @@ that, the caller doesn't need to know anything more." (p.59). Jon also
 warns against using the unit type (represented as ()) when using error
 handling enumerations (Enums) in Rust such as the Result and Option
 Enums.
+
 
 Project structure is more complex than one may think due to internal
 Rust tooling such as the package manager "[Cargo](https://crates.io/)".
@@ -68,6 +72,7 @@ crate such as a "[git](https://git-scm.com/)" repository or local file.
 Conditional Compilation allows Rust to be more flexible with its
 "[LLVM](https://llvm.org/)" based compiler.
 
+
 Testing is a core part of assuring the quality of software built with
 Rust. Rust allows for a custom testing harness to be used such as
 "[criterion](https://docs.rs/criterion/latest/criterion/)". Mocking code
@@ -82,6 +87,7 @@ Performance testing can be used to understand what changes affect run
 speed of a given program the crate
 "[criterion](https://docs.rs/criterion/latest/criterion/)" in most known
 for performance testing.
+
 
 Macros are a core part of the Rust ecosystem and are best described by
 Jon. As he states "Macros are, in essence, a tool for making the
@@ -101,3 +107,5 @@ can be function like, attribute or derive macros. Procedural macros use
 the
 "[TokenStream](https://doc.Rust-lang.org/proc_macro/struct.TokenStream.html)"
 type as part of the parsing process before handing the data to the AST.
+
+# [next](https://caden32.com/post/irps1_I_love_my_website_lol/)

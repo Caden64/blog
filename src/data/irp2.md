@@ -20,6 +20,7 @@ allows for waiting on the Future trait. The Pin and Unpin makes sure
 that the memory for the variable will always be in the same place and
 unpin will allow those variables to be moved in memory.
 
+
 Unsafe code allows Rust to be as flexible as C while allowing for memory
 safety. The reason the unsafe keyword exists in Rust a "Memory Safe"
 programming language is best summarized by Jon. As the text states
@@ -57,6 +58,7 @@ still allows Rust to be a memory safe language because of the limited
 memory checks a given developer may have to think about over Rust
 handling it.
 
+
 Jon goes over true parallelism on multicore concurrency which can be a
 performance boost or bottle neck based on operating systems scheduling
 when a thread can be used. Rust represents types as safe for use on one
@@ -77,3 +79,5 @@ slow down a program if one is used often enough. Worker pools are an
 important concept to multithreading because it alleviates some problems
 with distributing workload from a shared queue but threads can also
 preform thread stealing to speed up a given concurrent program.
+
+# [Next](https://caden32.com/post/irps1_why_are_you_looking_at_this/)
