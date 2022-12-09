@@ -1,5 +1,5 @@
 ---
-title: irp3
+title: IRP part 3
 author: What counts as a real name
 description: The middle of Rust for Rustaceans
 preview: Rust has a lot of fun features

@@ -1,5 +1,5 @@
 ---
-title: part 1
+title: IRP part 1
 author: What counts as a real name
 description: The start of Rust for Rustaceans
 preview: Rust has a lot of amazing features
