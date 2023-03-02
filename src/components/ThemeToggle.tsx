@@ -6,18 +6,19 @@ export default function ThemeToggle(): JSX.Element {
     const handleClick = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     }
-
     useEffect(() => {
         if (theme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+            }
         }
 
         localStorage.setItem('theme', theme);
     }, [theme]);
 
     return (
-        <button onClick={handleClick}>{theme === "light" ? "l" : "d"}</button>
+        <button onClick={handleClick}>{theme === "light" ? "☀️" : "🌙"}</button>
     );
 }
