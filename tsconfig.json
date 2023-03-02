@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": true,
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
