@@ -1,10 +1,11 @@
 ---
 title: IRP part 2
-author: What counts as a real name
+author: Caden Rothzeid
 description: The middle of Rust for Rustaceans
-preview: Rust has a lot of fun features
 date: 12/8/2022
-slug: "irps1_I_love_my_website_lol"
+tags:
+  - "rust"
+isDraft: false
 ---
 
 Asynchronous programing is a key part of the modern computer. As Jon

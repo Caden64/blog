@@ -1,26 +1,16 @@
 ---
 const { post } = Astro.props;
-
-function formatDate(date: Date) {
-    return new Date(date).toUTCString().replace(/(\d\d\d\d) .*/, "$1");
-}
 ---
 
 <article>
     <h3
         class="text-6xl dark:bg-black dark:text-white underline decoration-pickel-me-pink-500"
     >
-        <a href={`/post/${post.frontmatter.slug}`}>{post.frontmatter.title}</a>
+        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
     </h3>
     <div>
         <p class="text-4xl dark:bg-black dark:text-white">
-            {post.frontmatter.description}
-        </p>
-        <p class="text-3xl dark:bg-black dark:text-white">
-            <span>Published on</span>
-            <time datetime={post.frontmatter.date}>
-                {formatDate(post.frontmatter.date)}
-            </time>
+            {post.data.description}
         </p>
     </div>
 </article>
