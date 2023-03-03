@@ -1,10 +1,11 @@
 ---
 title: IRP part 3
-author: What counts as a real name
+author: Caden Rothzeid
 description: The middle of Rust for Rustaceans
-preview: Rust has a lot of fun features
 date: 11/8/2022
-slug: "irps1_why_are_you_looking_at_this"
+tags:
+  - "rust"
+isDraft: false
 ---
 
 Not all code is written in Rust. Many systems work on ["Fortran"](https://en.wikipedia.org/wiki/Fortran) still such as banking systems Jon goes on to explain foreign function interfaces (FFI).

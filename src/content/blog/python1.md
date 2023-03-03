@@ -2,9 +2,10 @@
 title: Learn Python
 author: Caden Rothzeid
 description: The basics of python
-preview: Getting started with python
 date: 12/25/2022
-slug: "python1"
+isDraft: false
+tags:
+  - "python"
 ---
 
 ## Installing Python and VSCode

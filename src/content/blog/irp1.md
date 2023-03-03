@@ -1,10 +1,11 @@
 ---
 title: IRP part 1
-author: What counts as a real name
+author: Caden Rothzeid
 description: The start of Rust for Rustaceans
-preview: Rust has a lot of amazing features
 date: 12/8/2022
-slug: "irps1_Rust_is_Great"
+tags:
+  - "rust"
+isDraft: false
 ---
 
 The book "Rust for Rustaceans" by Jon Gjengset is a programmers guide to

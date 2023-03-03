@@ -1,16 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import PostLists from "../components/PostLists.astro";
+import {getCollection} from "astro:content";
 
 const githubUsername = "winnietthepooh";
 const twitterUsername = "Caden32Com";
 const youtubeUrl = "https://www.youtube.com/channel/UCIwrI7e64rEkbiDSalxzqIQ";
 
-let allPosts = await Astro.glob("../data/*.md");
-allPosts = allPosts.sort((a, b) => {
-	new Date(a.frontmatter.date).valueOf() -
-		new Date(b.frontmatter.data).valueOf();
-});
+let allPosts = await getCollection("blog");
 
 const recentPosts = allPosts.slice(-2);
 ---
