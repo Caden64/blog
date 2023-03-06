@@ -5,7 +5,6 @@ interface Props {
 }
 
 const { description, tags} = Astro.props;
-const testsTags = ["js", "html"]
 ---
 
 <div>
@@ -14,7 +13,7 @@ const testsTags = ["js", "html"]
     </div>
     <div>
         {
-            testsTags.map((tag) => {
+            tags.map((tag) => {
                 return(
                 <p>
                     {tag}
