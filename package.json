@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --host",
+    "tsc": "astro dev --host && tsc --noEmit",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -12,13 +13,20 @@
   "devDependencies": {
     "@astrojs/sitemap": "^1.1.0",
     "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.0.16"
+    "astro": "^2.0.17"
   },
   "dependencies": {
     "@astrojs/preact": "^2.0.3",
     "@astrojs/react": "^1.2.2",
+    "@astrojs/svelte": "^2.0.2",
+    "@headlessui/react": "^1.7.13",
     "@tailwindcss/forms": "^0.5.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "preact": "^10.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "svelte": "^3.55.1",
     "yarn": "^1.22.19"
   }
 }

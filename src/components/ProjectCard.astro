@@ -1,0 +1,26 @@
+---
+interface Props {
+    description: String;
+    tags: String[];
+}
+
+const { description, tags} = Astro.props;
+const testsTags = ["js", "html"]
+---
+
+<div>
+     <div>
+        {description}
+    </div>
+    <div>
+        {
+            testsTags.map((tag) => {
+                return(
+                <p>
+                    {tag}
+                </p>
+                )
+            })
+        }
+    </div>
+</div>
