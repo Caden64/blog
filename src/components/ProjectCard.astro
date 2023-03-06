@@ -1,25 +1,29 @@
 ---
 interface Props {
+    title: String;
     description: String;
     tags: String[];
 }
 
-const { description, tags} = Astro.props;
+const { title, description,tags} = Astro.props;
 ---
 
-<div>
-     <div>
-        {description}
+<div class="bg-stone-200 px-4 w-auto inline-block mx-8 my-12 py-2 rounded-md text-stone-800">
+    <div class="text-xl pb-2">
+        <h1>{title}</h1>
+        <h3 class="text-lg">{description}</h3>
     </div>
-    <div>
-        {
-            tags.map((tag) => {
-                return(
-                <p>
-                    {tag}
-                </p>
-                )
-            })
-        }
+    <div class="flex justify-between items-center">
+        <ul class="flex gap-4">
+            {
+                tags.map((tag) => {
+                    return(
+                        <li class="border-2 rounded-full px-2 border-stone-400">
+                            <a>{tag}</a>
+                        </li>
+                    )
+                })
+            }
+        </ul>
     </div>
 </div>

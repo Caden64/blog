@@ -4,6 +4,8 @@ import ProjectCard from "@components/ProjectCard.astro";
 ---
 
 <BaseLayout>
-   Projects
-   <ProjectCard description={"wow"} tags={["js", "html", "rust"]}/>
+   <div class="flex justify-center items-center mt-40">
+      <ProjectCard title={"Caden32.com"} description={"This is my portfolio website"} tags={["Astro", "React", "TypeScript"]}/>
+      <ProjectCard title={"Hypixel Auctions"} description={"An application that gets API data in less than 5 seconds"} tags={["Golang", "Rust","MongoDB", "Postgres", "SQLite"]} />
+   </div>
 </BaseLayout>
