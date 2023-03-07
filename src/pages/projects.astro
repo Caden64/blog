@@ -1,12 +1,20 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ProjectCard from "@components/ProjectCard.astro";
+import Caden32 from "@components/cards/Caden32.astro";
+import HypixelAuctions from "@components/cards/HypixelAuctions.astro";
+import PyDiscordBot from "@components/cards/PyDiscordBot.astro";
+import TagTest from "@components/cards/TagTest.astro";
 ---
 
 <BaseLayout>
-   <div class="flex justify-center items-center mt-40">
-      <ProjectCard title={"Caden32.com"} description={"This is my portfolio website"} tags={["Astro", "React", "TypeScript"]}/>
-      <ProjectCard title={"Hypixel Auctions"} description={"An application that gets API data in less than 5 seconds"} tags={["Golang", "Rust","MongoDB", "Postgres", "SQLite"]} />
-      <ProjectCard title={"A Discord Bot Programmed in python"} description={"The first major project I ever made"} tags={["Python", "Discord"]} />
+   <div class="hidden lg:flex justify-center items-center mt-40">
+      <Caden32 />
+      <HypixelAuctions />
+      <PyDiscordBot />
+   </div>
+   <div class="lg:hidden flex flex-col justify-center items-center mt-40">
+      <Caden32 />
+      <HypixelAuctions />
+      <PyDiscordBot />
    </div>
 </BaseLayout>

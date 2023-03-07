@@ -6,19 +6,21 @@ interface Props {
 }
 
 const { title, description,tags} = Astro.props;
+const colors = ["bg-red-200", "bg-orange-200", "bg-green-200", "bg-cyan-200", "bg-blue-200", "bg-purple-300"]
+const color = colors[Math.floor(Math.random() * colors.length)]
 ---
 
-<div class="hidden flex-wrap lg:flex bg-stone-200 px-4 w-auto mx-8 my-12 py-2 rounded-md text-stone-800">
+<div class="hidden flex-wrap lg:flex bg-stone-200 px-4 w-auto mx-8 my-12 py-2 rounded-md text-stone-800 drop-shadow-xl">
     <div class="text-xl pb-2">
         <h1>{title}</h1>
         <h3 class="text-lg">{description}</h3>
     </div>
     <div class="flex justify-between items-center">
-        <ul class="flex gap-4">
+        <ul class=`flex gap-4`>
             {
                 tags.map((tag) => {
                     return(
-                        <li class="border-2 rounded-full px-2 border-stone-400">
+                        <li class=`border-2 rounded-full px-2 border-stone-400 ${color}`>
                             <a>{tag}</a>
                         </li>
                     )
@@ -28,17 +30,17 @@ const { title, description,tags} = Astro.props;
     </div>
 </div>
 
-<div class="flex flex-col gap-y-2 flex-wrap lg:hidden bg-stone-200 px-4 w-auto mx-8 my-12 py-2 rounded-md text-stone-800">
-    <div class="text-xl pb-2">
+<div class="flex flex-col justify-center lg:hidden bg-stone-200 m-auto my-8 text-2xl items-center p-4 rounded-md text-stone-800 drop-shadow-xl">
+    <div class="text-4xl pb-2">
         <h1>{title}</h1>
-        <h3 class="text-lg">{description}</h3>
+        <h3 class="text-3xl">{description}</h3>
     </div>
     <div class="flex justify-between items-center">
         <ul class="flex gap-4">
             {
                 tags.map((tag) => {
                     return(
-                            <li class="border-2 rounded-full px-2 border-stone-400">
+                            <li class=`border-2 rounded-full px-2 border-stone-400 ${color}`>
                                 <a>{tag}</a>
                             </li>
                     )
