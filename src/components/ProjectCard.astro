@@ -10,17 +10,17 @@ const { title, description,tags, color} = Astro.props;
 // const colors = ["bg-red-200", "bg-orange-200", "bg-green-200", "bg-cyan-200", "bg-blue-200", "bg-purple-300"]
 ---
 
-<div class="hidden flex-wrap lg:flex bg-stone-200 px-4 w-auto mx-8 my-12 py-2 rounded-md text-stone-800 drop-shadow-xl">
+<div class="hidden flex-wrap lg:flex bg-pastel-theme-light-sweet-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-text-gray border px-4 w-auto mx-8 my-12 py-2 rounded-md drop-shadow-xl">
     <div class="text-xl pb-2">
         <h1>{title}</h1>
-        <h3 class="text-lg">{description}</h3>
+        <h3 class="text-lg text-pastel-theme-gray">{description}</h3>
     </div>
     <div class="flex justify-between items-center">
         <ul class=`flex gap-4`>
             {
                 tags.map((tag) => {
                     return(
-                        <li class=`border-2 rounded-full px-2 border-stone-400 ${color}`>
+                        <li class=`border-2 rounded-full px-2 border-pastel-general-dark-baby-blue-eyes bg-pastel-theme-med-sweet-blue`>
                             <a>{tag}</a>
                         </li>
                     )
@@ -29,23 +29,24 @@ const { title, description,tags, color} = Astro.props;
         </ul>
     </div>
 </div>
-
-<div class="flex flex-col justify-center lg:hidden bg-stone-200 m-auto my-8 text-2xl items-center p-4 rounded-md text-stone-800 drop-shadow-xl">
-    <div class="text-4xl pb-2">
-        <h1>{title}</h1>
-        <h3 class="text-3xl">{description}</h3>
-    </div>
-    <div class="flex justify-between items-center">
-        <ul class="flex gap-4">
-            {
-                tags.map((tag) => {
-                    return(
-                            <li class=`border-2 rounded-full px-2 border-stone-400 ${color}`>
-                                <a>{tag}</a>
-                            </li>
-                    )
-                })
-            }
-        </ul>
+<div class="flex lg:hidden pt-12">
+    <div class="flex flex-col justify-center lg:hidden bg-pastel-theme-light-sweet-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-text-gray m-auto my-8 text-2xl items-center p-4 rounded-md drop-shadow-xl border-2">
+        <div class="text-4xl pb-2">
+            <h1>{title}</h1>
+            <h3 class="text-3xl text-pastel-theme-gray">{description}</h3>
+        </div>
+        <div class="flex justify-between items-center">
+            <ul class="flex gap-4">
+                {
+                    tags.map((tag) => {
+                        return(
+                                <li class=`border-4 rounded-full px-2 border-pastel-general-dark-baby-blue-eyes bg-pastel-theme-med-sweet-blue text-pastel-theme-text-gray`>
+                                    <a>{tag}</a>
+                                </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     </div>
 </div>
