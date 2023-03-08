@@ -1,7 +1,20 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro"
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Caden32 from "@components/cards/Caden32.astro";
+import HypixelAuctions from "@components/cards/HypixelAuctions.astro";
+import PyDiscordBot from "@components/cards/PyDiscordBot.astro";
+import TagTest from "@components/cards/TagTest.astro";
 ---
 
 <BaseLayout>
-    <div>text</div>
+   <div class="hidden lg:flex justify-center items-center mt-40">
+      <Caden32 />
+      <HypixelAuctions />
+      <PyDiscordBot />
+   </div>
+   <div class="lg:hidden flex flex-col justify-center items-center mt-40">
+      <Caden32 />
+      <HypixelAuctions />
+      <PyDiscordBot />
+   </div>
 </BaseLayout>
