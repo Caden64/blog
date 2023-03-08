@@ -24,6 +24,7 @@ module.exports = {
 					'teal': '#67CAC6',
 					'light-pink': '#D68589',
 					'off-white': '#F8F1DF',
+					'subtitle-off-white':'#F7EDE2',
 					'sweet-blue': '#4C8ED5',
 					'med-sweet-blue': '#6a9dd4',
 					'light-sweet-blue': '#ACCDEC',
