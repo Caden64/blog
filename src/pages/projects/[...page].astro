@@ -10,6 +10,7 @@ console.log(page.data.map(test => test.slug))
 ---
 <BaseLayout>
 <h1>page: {page.currentPage}</h1>
-
-{page.data.map(test => <a href=`/projects/project/${test.slug}`>{test.data.title}</a>)}
+<div class="flex flex-col gap-y-4 pt-2">
+    {page.data.map(test => <a href=`/projects/project/${test.slug}`>{test.data.title}</a>)}
+</div>
 </BaseLayout>
