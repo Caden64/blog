@@ -12,5 +12,6 @@ console.log(page.data.map(test => test.slug))
 <h1>page: {page.currentPage}</h1>
 <div class="flex flex-col gap-y-4 pt-2">
     {page.data.map(test => <a href=`/projects/project/${test.slug}`>{test.data.title}</a>)}
+    {page.url.next != undefined && <a href={page.url.next}>Next -></a> }
 </div>
 </BaseLayout>

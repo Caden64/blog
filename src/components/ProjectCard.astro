@@ -10,9 +10,9 @@ const { title, description,tags, color} = Astro.props;
 // const colors = ["bg-red-200", "bg-orange-200", "bg-green-200", "bg-cyan-200", "bg-blue-200", "bg-purple-300"]
 ---
 
-<div class="hidden flex-wrap lg:flex bg-pastel-theme-light-sweet-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-off-white border px-4 w-auto mx-8 my-12 py-2 rounded-md drop-shadow-xl">
+<div class="hidden flex-wrap lg:flex bg-pastel-general-header-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-off-white border px-4 w-auto mx-8 my-12 py-2 rounded-md drop-shadow-xl">
     <div class="text-xl pb-2">
-        <h1 class="drop-shadow-md">{title}</h1>
+        <h1 class="drop-shadow-md text-pastel-theme-text-gray">{title}</h1>
         <h3 class="text-lg text-pastel-theme-gray">{description}</h3>
     </div>
     <div class="flex justify-between items-center">
@@ -30,7 +30,7 @@ const { title, description,tags, color} = Astro.props;
     </div>
 </div>
 <div class="flex lg:hidden pt-12">
-    <div class="flex flex-col justify-center lg:hidden bg-pastel-theme-light-sweet-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-text-gray m-auto my-8 text-3xl items-center p-4 rounded-md drop-shadow-xl border-2">
+    <div class="flex flex-col justify-center lg:hidden bg-pastel-general-phone-header-blue border-pastel-general-dark-baby-blue-eyes text-pastel-theme-text-gray m-auto my-8 text-3xl items-center p-4 rounded-md drop-shadow-xl border-2">
         <div class="text-5xl pb-2">
             <h1 class="drop-shadow-md">{title}</h1>
             <h3 class="text-4xl drop-shadow-lg">{description}</h3>

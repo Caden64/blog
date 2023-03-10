@@ -17,6 +17,8 @@ module.exports = {
 					'Mauve': '#FFC6FF',
 					'dark-baby-blue-eyes': '#4a8cdb',
 					'border-baby-blue-eyes': '#8fc4ff',
+					'header-blue': '#82beff',
+					'phone-header-blue': '#a3ceff'
 				},
 				'pastel-theme': {
 					'text-gray': '#27282a',
