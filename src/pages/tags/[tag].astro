@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "@layouts/BaseLayout.astro"
+import ProjectCard from "@components/ProjectCard.astro"
 import { getCollection } from "astro:content";
 const projects = await getCollection('projects');
 const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
@@ -24,10 +25,15 @@ export async function getStaticPaths() {
 }
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+const capital = function (string) {
+    return string.replace(string.charAt(0), string.charAt(0).toUpperCase())
+}
 ---
 <BaseLayout>
-    <p>{tag}</p>
-    <ul>
-        {posts.map((post) => <p>{post.data.title}</p>)}
-    </ul>
+    <div class="items-center justify-center flex flex-col mt-6">
+        <h1 class="text-3xl">Projects with {tag.replace(tag.charAt(0), tag.charAt(0).toUpperCase())}</h1>
+        <ul>
+            {posts.map((post) => <ProjectCard  title={post.data.title}  tags={post.data.tags.map((tag) => capital(tag))}  description={post.data.description} />)}
+        </ul>
+    </div>
 </BaseLayout>
