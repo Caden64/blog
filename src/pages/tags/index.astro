@@ -1,0 +1,10 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+import {getCollection} from "astro:content";
+
+const projects = await getCollection('projects');
+const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
+---
+<BaseLayout>
+    <div>{tags.map((tag) => <p>{tag}</p>)}</div>
+</BaseLayout>

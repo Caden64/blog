@@ -1,5 +1,6 @@
 ---
 title: "Hypixel Auctions"
+description: An API for getting external API data blazing fast
 tags: 
   - "Minecraft"
   - "Python"
@@ -9,3 +10,5 @@ tags:
   - "Postgres"
   - "SQLite"
 ---
+
+Hypixel Auctions Project Page

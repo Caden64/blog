@@ -3,18 +3,34 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Caden32 from "@components/cards/Caden32.astro";
 import HypixelAuctions from "@components/cards/HypixelAuctions.astro";
 import PyDiscordBot from "@components/cards/PyDiscordBot.astro";
-import TagTest from "@components/cards/TagTest.astro";
+import ProjectCard from "@components/ProjectCard.astro"
+import { getCollection } from "astro:content";
+const projects = await getCollection('projects')
+const list = projects.slice(0, 3)
 ---
 
 <BaseLayout>
    <div class="hidden lg:flex justify-center items-center mt-40">
-      <Caden32 />
-      <HypixelAuctions />
-      <PyDiscordBot />
+      {list.map(item => {  return <div-click data-slug={"/projects/project/" + `${item.slug}`}> <button><ProjectCard  title={item.data.title}  tags={item.data.tags}  description={item.data.description} slug={`/projects/project/${item.slug}`}/></button></div-click> })}
    </div>
    <div class="lg:hidden flex flex-col justify-center items-center mt-40">
-      <Caden32 />
-      <HypixelAuctions />
-      <PyDiscordBot />
+      {list.map(item => {  return <div-click data-slug={"/projects/project/" + `${item.slug}`}> <button><ProjectCard  title={item.data.title}  tags={item.data.tags}  description={item.data.description} /></button></div-click>})}
    </div>
 </BaseLayout>
+<script>
+  class DivClick extends HTMLElement {
+    constructor() {
+      super();
+      console.log(this.dataset)
+      const page = this.dataset.slug;
+      const button = this.querySelector('button');
+      if (button) {
+        button.addEventListener('click', () => {
+          window.location.href = page;
+        });
+      }
+    }
+  }
+
+  customElements.define('div-click', DivClick);
+</script>

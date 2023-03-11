@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { getCollection } from "astro:content";
+const projects = await getCollection('projects');
+const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
+    const lowerTags = tags.map((tag) => tag.toLowerCase())
+    function arrToLower(arr) {
+        let intermediate = arr
+        for (let i = 0; i < intermediate.length; i++ ) {
+            intermediate[i] = intermediate[i].toLowerCase()
+        }
+        return intermediate
+    }
+    return lowerTags.map((tag) => {
+        const filtered = projects.filter((project) => arrToLower(project.data.tags).includes(tag))
+        return {
+            params: { tag },
+            props: { posts: filtered }
+        }
+    })
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<BaseLayout>
+    <p>{tag}</p>
+    <ul>
+        {posts.map((post) => <p>{post.data.title}</p>)}
+    </ul>
+</BaseLayout>
