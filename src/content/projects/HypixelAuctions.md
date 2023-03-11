@@ -6,9 +6,6 @@ tags:
   - "Python"
   - "Golang"
   - "Rust"
-  - "MongoDB"
-  - "Postgres"
-  - "SQLite"
 ---
 
 Hypixel Auctions Project Page

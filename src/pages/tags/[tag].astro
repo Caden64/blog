@@ -31,7 +31,7 @@ const capital = function (string) {
 ---
 <BaseLayout>
     <div class="items-center justify-center flex flex-col mt-6">
-        <h1 class="text-3xl">Projects with {tag.replace(tag.charAt(0), tag.charAt(0).toUpperCase())}</h1>
+        <h1 class="text-5xl lg:text-3xl text-pastel-gradient-gray-600">Projects with {tag.replace(tag.charAt(0), tag.charAt(0).toUpperCase())}</h1>
         <ul>
             {posts.map((post) => <ProjectCard  title={post.data.title}  tags={post.data.tags.map((tag) => capital(tag))}  description={post.data.description} />)}
         </ul>

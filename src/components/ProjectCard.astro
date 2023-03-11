@@ -40,7 +40,7 @@ const { title, description,tags, slug} = Astro.props;
                     tags.map((tag) => {
                         return(
                                 <li class=`rounded-full px-4 py-1 bg-pastel-gradient-blue-600 text-pastel-gradient-white-400 drop-shadow-xl`>
-                                    <a>{tag}</a>
+                                    <a  href={"/tags/" + `${tag.toLowerCase()}`}>{tag}</a>
                                 </li>
                         )
                     })
