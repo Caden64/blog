@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro"
+import ProjectCard from "@components/ProjectCard.astro"
 export async function getStaticPaths({ paginate }) {
     const allProjects = await getCollection('projects')
     return paginate(allProjects, {pageSize: 5})
@@ -8,9 +9,10 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props
 ---
 <BaseLayout>
-<h1>page: {page.currentPage}</h1>
-<div class="flex flex-col gap-y-4 pt-2">
-    {page.data.map(test => <a href=`/projects/project/${test.slug}`>{test.data.title}</a>)}
+<div class="flex flex-col gap-y-4 pt-2 items-center">
+    {page.data.map(post => <ProjectCard  title={post.data.title}  tags={post.data.tags}  description={post.data.description} slug={`/projects/project/${post.slug}`}/>)}
+    <h1>Page {page.currentPage} of {page.lastPage}</h1>
+    {page.url.prev != undefined && <a href={page.url.prev}>Back <-</a> }
     {page.url.next != undefined && <a href={page.url.next}>Next -></a> }
 </div>
 </BaseLayout>
