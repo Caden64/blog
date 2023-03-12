@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+import ProjectCard from "@components/ProjectCard.astro"
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
+    const lowerTags = tags.map((tag) => tag.toLowerCase())
+    function arrToLower(arr) {
+        let intermediate = arr
+        for (let i = 0; i < intermediate.length; i++ ) {
+            intermediate[i] = intermediate[i].toLowerCase()
+        }
+        return intermediate
+    }
+    return lowerTags.map((tag) => {
+        const filtered = projects.filter((project) => arrToLower(project.data.tags).includes(tag))
+        return {
+            params: { tag },
+            props: { posts: filtered }
+        }
+    })
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const capital = function (string) {
+    return string.replace(string.charAt(0), string.charAt(0).toUpperCase())
+}
+---
+<BaseLayout>
+    <div class="items-center justify-center flex flex-col mt-6">
+        <h1 class="text-5xl lg:text-3xl text-pastel-gradient-gray-600">Projects with {tag.replace(tag.charAt(0), tag.charAt(0).toUpperCase())}</h1>
+        <ul>
+            {posts.map((post) => <ProjectCard  title={post.data.title}  tags={post.data.tags}  description={post.data.description} slug={`/projects/project/${post.slug}`}/>)}
+        </ul>
+    </div>
+</BaseLayout>

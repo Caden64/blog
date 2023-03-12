@@ -1,0 +1,73 @@
+---
+interface Props {
+    title: String;
+    description: String;
+    tags: String[];
+    slug: String;
+}
+
+const { title, description,tags, slug} = Astro.props;
+const capital = function (string) {
+    return string.replace(string.charAt(0), string.charAt(0).toUpperCase())
+}
+---
+<div-click data-slug={`${slug}`}>
+    <button>
+        <div class="hidden lg:block bg-pastel-gradient-light-blue-500 px-4 w-auto mx-8 my-12 py-2 rounded-md drop-shadow-xl">
+            <div class="text-xl pb-2">
+                <h1 class="drop-shadow-md text-pastel-gradient-gray-600">{title}</h1>
+                <h3 class="text-lg text-pastel-gradient-gray-400">{description}</h3>
+            </div>
+            <div class="flex justify-between items-center">
+                <ul class=`flex gap-4`>
+                    {
+                        tags.map((tag) => {
+                            return(
+                                <li class=`rounded-full px-2 py-1 bg-pastel-gradient-blue-600 text-pastel-gradient-white-400`>
+                                    <a href={"/tags/" + `${tag.toLowerCase()}`}>{capital(tag)}</a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </div>
+    </button>
+</div-click>
+    <div class="flex lg:hidden pt-12">
+        <div class="flex flex-col justify-center lg:hidden bg-pastel-gradient-light-blue-500 m-auto my-8 text-3xl items-center p-4 rounded-md drop-shadow-xl">
+            <div class="text-5xl pb-2">
+                <h1 class="drop-shadow-md text-pastel-gradient-gray-600">{title}</h1>
+                <h3 class="text-4xl drop-shadow-lg text-pastel-gradient-gray-400">{description}</h3>
+            </div>
+            <div class="flex justify-between items-center">
+                <ul class="flex gap-4">
+                {
+                    tags.map((tag) => {
+                        return(
+                                <li class=`rounded-full px-4 py-1 bg-pastel-gradient-blue-600 text-pastel-gradient-white-400 drop-shadow-xl`>
+                                    <a  href={"/tags/" + `${tag.toLowerCase()}`}>{tag}</a>
+                                </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    class DivClick extends HTMLElement {
+        constructor() {
+            super();
+            const page = this.dataset.slug;
+            const button = this.querySelector('button');
+            if (button) {
+                button.addEventListener('click', () => {
+                    window.location.href = page;
+                    });
+                }
+            }
+        }
+
+        customElements.define('div-click', DivClick);
+</script>
