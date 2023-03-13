@@ -5,6 +5,6 @@ import {getCollection} from "astro:content";
 const projects = await getCollection('projects');
 const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
 ---
-<BaseLayout>
+<BaseLayout title="all tags">
     <div>{tags.map((tag) => <p>{tag}</p>)}</div>
 </BaseLayout>
