@@ -10,7 +10,7 @@ const list = projects.slice(0, 3)
    <div class="hidden lg:flex justify-center items-center mt-40">
       {list.map(item => {  return <ProjectCard  title={item.data.title}  tags={item.data.tags}  description={item.data.description} slug={`/projects/project/${item.slug}`}/>})}
    </div>
-   <div class="lg:hidden flex flex-col justify-center items-center mt-40">
+   <div class="lg:hidden flex flex-col justify-center items-center gap-y-8 mt-20">
       {list.map(item => {  return <ProjectCard  title={item.data.title}  tags={item.data.tags}  description={item.data.description} slug={`/projects/project/${item.slug}`}/>})}
    </div>
 </BaseLayout>
