@@ -14,7 +14,7 @@
     {#if $isFlyoutOpen}
         <div class="relative mt-2">
             <div class="absolute top-0 right-0">
-                <div class="flex flex-col gap-y-2 items-center text-lg">
+                <div class="flex flex-col gap-y-2 items-center text-xl">
                     <div class="mr-4">
                         <a in:fade="{fadeIn}" out:fade="{fadeOut}" href="/" class="bg-pastel-gradient-blue-md-500 px-2 rounded-full hover:bg-pastel-gradient-blue-600 hover:text-white">Home</a>
                     </div>

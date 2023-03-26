@@ -1,11 +1,10 @@
 {
-  "name": "@example/basics",
+  "name": "@caden/blog",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --host",
-    "tsc": "astro dev --host && tsc --noEmit",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
