@@ -1,5 +1,6 @@
 ---
-import Header from "../components/Header.astro"
+import Header from "@components/Header.astro"
+import SlideOut from "@components/SlideOut.svelte";
 interface Props {
     title: String;
 }
@@ -13,8 +14,9 @@ const { title } = Astro.props
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
         <title>{title}</title>
     </head>
-    <div class="bg-pastel-gradient-white-500 h-[100vmax]">
+    <div class="bg-pastel-gradient-white-500 h-screen lg:h-[100vmin]">
         <Header />
+        <SlideOut client:idle />
         <slot />
     </div>
 </html>

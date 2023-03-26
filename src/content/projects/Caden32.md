@@ -4,6 +4,7 @@ description: This is my portfolio site
 tags:
   - "Astro"
   - "TypeScript"
+  - "Web"
 ---
 
 # Why
