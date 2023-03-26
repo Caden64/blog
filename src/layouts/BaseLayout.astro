@@ -14,7 +14,7 @@ const { title } = Astro.props
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
         <title>{title}</title>
     </head>
-    <div class="bg-pastel-gradient-white-500 h-screen lg:h-[100vmin]">
+    <div class="bg-pastel-gradient-white-500 h-[100vmax] lg:h-[100vmin]">
         <Header />
         <SlideOut client:idle />
         <slot />

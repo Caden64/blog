@@ -12,7 +12,7 @@
 </script>
 <nav class:expanded={$isFlyoutOpen}>
     {#if $isFlyoutOpen}
-        <div class="relative mt-2">
+        <div class="relative mt-2 pb-8 lg:pb-0">
             <div class="absolute top-0 right-0">
                 <div class="flex flex-col gap-y-2 items-center text-xl">
                     <div class="mr-4">
