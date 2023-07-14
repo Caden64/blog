@@ -1,8 +1,6 @@
-# My blog
+# [My blog](caden32.com)
 
-This will be build using astro because it is new and just reached V 1.1
-
-A blog to do cool stuff with
+This will be built using Astro because it has new features in v2.0
 
 ---
 
