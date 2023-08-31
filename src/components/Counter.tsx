@@ -1,6 +1,6 @@
 import {createSignal, For} from "solid-js";
 
-export default function Counter(props) {
+export default function Counter(props: any) {
     const [count, setCount] = createSignal(0);
     const add = () => setCount(count() + 1);
     const subtract = () => setCount(count() - 1);
