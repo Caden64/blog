@@ -10,10 +10,12 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^1.1.0",
-    "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.1.7"
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.0.3"
   },
   "dependencies": {
+    "@astrojs/solid-js": "^3.0.0",
+    "solid-js": "^1.7.11"
   }
 }

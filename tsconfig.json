@@ -19,7 +19,7 @@
         "src/layouts/*"
       ]
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

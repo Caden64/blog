@@ -1,20 +1,21 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import Counter from "@components/Counter.jsx";
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('blog');
 ---
 
 <MainLayout title="My Blog">
   <h1 class="text-xl font-semibold p-4">Index</h1>
-  <section aria-label="Blog Posts">
-    <div>
-      <ul class="flex">
-        {blogEntries.slice(0,3).map(blogPost  => (
-            <li class="px-2">
-              <a href=`blog/${blogPost.slug}`>{blogPost.data.title}</a>
-            </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  <div class="flex">
+    {
+      blogEntries.map(blogPost  => (
+        <div class="px-2">
+          <a href=`blog/${blogPost.slug}`>{blogPost.data.title}</a>
+        </div>
+    ))}
+  </div>
+  <div>
+    <Counter wow={blogEntries} client:idle />
+  </div>
 </MainLayout>
