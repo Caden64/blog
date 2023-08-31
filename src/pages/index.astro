@@ -7,14 +7,6 @@ const blogEntries = await getCollection('blog');
 
 <MainLayout title="My Blog">
   <h1 class="text-xl font-semibold p-4">Index</h1>
-  <div class="flex">
-    {
-      blogEntries.map(blogPost  => (
-        <div class="px-2">
-          <a href=`blog/${blogPost.slug}`>{blogPost.data.title}</a>
-        </div>
-    ))}
-  </div>
   <div>
     <Counter wow={blogEntries} client:idle />
   </div>

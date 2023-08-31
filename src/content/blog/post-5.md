@@ -1,5 +1,6 @@
 ---
 title: "Post 5"
+id: 5
 tags:
   - "tag1"
   - "tag2"

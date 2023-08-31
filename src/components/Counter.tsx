@@ -1,9 +1,17 @@
-import {createSignal, For} from "solid-js";
+import {createSignal, For, Show} from "solid-js";
 
 export default function Counter(props: any) {
-    const [count, setCount] = createSignal(0);
-    const add = () => setCount(count() + 1);
-    const subtract = () => setCount(count() - 1);
+    const [count, setCount] = createSignal(1);
+    const add = () => {
+        if (props.wow.length > count() + 2) {
+            setCount(count() + 1)
+        }
+    }
+    const subtract = () => {
+        if (count() > 1) {
+            setCount(count() - 1)
+        }
+    }
 
     return (
         <>
@@ -14,10 +22,13 @@ export default function Counter(props: any) {
             </div>
             <div>
                 <For each={props.wow} fallback={<div>loading...</div>}>
-                    {(item) => <div>{item.slug}</div>}
+                    {(item) => <div>
+                        <Show when={item.data.id >= count() && item.data.id < count() + 3}>
+                            {item.data.id}
+                        </Show>
+                    </div>}
                 </For>
             </div>
         </>
     )
 }
-// Use a sliding window algorithm to get the 3 blog posts and use the slugs
