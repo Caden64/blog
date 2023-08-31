@@ -20,3 +20,4 @@ export default function Counter(props: any) {
         </>
     )
 }
+// Use a sliding window algorithm to get the 3 blog posts and use the slugs
