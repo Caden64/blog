@@ -1,6 +1,6 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import Counter from "../components/Counter.jsx";
+import BlogCarousel from "@components/BlogCarousel.tsx";
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('blog');
 ---
@@ -8,6 +8,6 @@ const blogEntries = await getCollection('blog');
 <MainLayout title="My Blog">
   <h1 class="text-xl font-semibold p-4">Index</h1>
   <div>
-    <Counter blogs={blogEntries} amount={blogEntries.length} client:load />
+    <BlogCarousel blogs={blogEntries} amount={blogEntries.length} client:idle />
   </div>
 </MainLayout>

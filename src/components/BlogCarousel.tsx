@@ -1,6 +1,6 @@
 import {Accessor, createSignal, For, Show} from "solid-js";
 
-export default function Counter(props: any) {
+export default function BlogCarousel(props: any) {
     const [count, setCount] = createSignal(1);
     const add = () => {
         if (props.amount > count() + 2) {
@@ -17,19 +17,26 @@ export default function Counter(props: any) {
         <>
             <div class="flex items-center justify-center flex-col">
                 <div class="flex flex-row">
-                    <Show when={count() > 1} fallback={<div class="px-1 opacity-50">{`<`}</div>}>
+                    <Show when={count() > 1} fallback={<button class="px-1 opacity-50">{`<`}</button>}>
                         <button onClick={subtract} class="px-1"> {`<`} </button>
                     </Show>
                     <For each={props.blogs} fallback={<div>loading...</div>}>
                         {(item) => <div>
                             <Show when={item.data.id >= count() && item.data.id < count() + 3}>
                                 <a href={`blog/${item.slug}`} class="px-4">
-                                    {item.slug}
+                                    <div class="px-4 flex flex-col">
+                                        <div>
+                                            {item.data.title}
+                                        </div>
+                                        <div class="bg-gray-200 p-2 rounded">
+                                            {item.data.description}
+                                        </div>
+                                    </div>
                                 </a>
                             </Show>
                         </div>}
                     </For>
-                    <Show when={props.blogs.length > count() + 2} fallback={<div class="px-1 opacity-50">{`>`}</div>}>
+                    <Show when={props.blogs.length > count() + 2} fallback={<button class="px-1 opacity-50">{`>`}</button>}>
                         <button onClick={add} class="px-1">{`>`}</button>
                     </Show>
                 </div>
