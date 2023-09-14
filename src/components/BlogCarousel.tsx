@@ -1,4 +1,4 @@
-import {Accessor, createSignal, For, Show} from "solid-js";
+import {createSignal, For, Show} from "solid-js";
 
 export default function BlogCarousel(props: any) {
     const [count, setCount] = createSignal(1);
@@ -25,10 +25,10 @@ export default function BlogCarousel(props: any) {
                             <Show when={item.data.id >= count() && item.data.id < count() + 3}>
                                 <a href={`blog/${item.slug}`} class="px-4">
                                     <div class="px-4 flex flex-col">
-                                        <div>
+                                        <div class="flex justify-center">
                                             {item.data.title}
                                         </div>
-                                        <div class="bg-gray-200 p-2 rounded">
+                                        <div class="bg-gray-200 p-2 rounded flex justify-center items-center">
                                             {item.data.description}
                                         </div>
                                     </div>
