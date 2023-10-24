@@ -28,8 +28,8 @@ export default function BlogCarousel(props: any) {
                                         <div class="flex justify-center rounded bg-gray-100 border-gray-200 border">
                                             <img src="/favicon.png" alt="whoa" width="125" height="125" />
                                         </div>
-                                        <div class="bg-gray-200 p-2 rounded flex justify-center items-center flex-col">
-                                            <div>
+                                        <div class="bg-gray-200 p-2 rounded flex justify-center items-center flex-col text-lg">
+                                            <div class="text-xl">
                                                 {item.data.title}
                                             </div>
                                             {item.data.description}
