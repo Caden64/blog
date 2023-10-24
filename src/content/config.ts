@@ -6,7 +6,8 @@ const blogCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         tags: z.array(z.string()),
-        image: z.string().optional(),
+        image: z.string().default("/favicon.png"),
+        alt: z.string().default("This image does not have an alt. Sorry!"),
         id: z.number(),
     })
 });

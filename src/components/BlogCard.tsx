@@ -1,3 +1,5 @@
+import {For} from "solid-js";
+
 export default function BlogCard(props: any) {
     return (
         <>
@@ -11,6 +13,13 @@ export default function BlogCard(props: any) {
                             {props.post.data.title}
                         </div>
                         {props.post.data.description}
+                        <div class="grid grid-rows-2 grid-cols-3">
+                            <For each={props.post.data.tags}>
+                                {(item) => <div class="p-0.5 px-1 m-0.5 rounded-xl bg-stone-100">
+                                    {item}
+                                </div>}
+                            </For>
+                        </div>
                     </div>
                 </div>
             </a>
