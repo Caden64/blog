@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('blog');
 ---
 
-<MainLayout title="My Blog">
+<MainLayout title="Caden's Blog">
   <h1 class="text-xl font-semibold p-4">Index</h1>
   <div>
     <BlogCarousel blogs={blogEntries} amount={blogEntries.length} client:idle />
