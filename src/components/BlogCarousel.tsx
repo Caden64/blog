@@ -1,4 +1,5 @@
 import {createSignal, For, Show} from "solid-js";
+import BlogCard from "@components/BlogCard";
 
 export default function BlogCarousel(props: any) {
     const [count, setCount] = createSignal(1);
@@ -18,29 +19,17 @@ export default function BlogCarousel(props: any) {
             <div class="flex items-center justify-center flex-col">
                 <div class="flex flex-row">
                     <Show when={count() > 1} fallback={<button class="px-1 opacity-50">{`<`}</button>}>
-                        <button onClick={subtract} class="px-1"> {`<`} </button>
+                        <button onClick={subtract} class="px-1 font-bold text-xl"> {`<`} </button>
                     </Show>
                     <For each={props.blogs} fallback={<div>loading...</div>}>
                         {(item) => <div>
                             <Show when={item.data.id >= count() && item.data.id < count() + 3}>
-                                <a href={`blog/${item.slug}`} class="px-4">
-                                    <div class="px-4 flex flex-col py-4 my-8">
-                                        <div class="flex justify-center rounded bg-gray-200 border-gray-300 border">
-                                            <img src="/favicon.png" alt="whoa" width="125" height="125" />
-                                        </div>
-                                        <div class="bg-gray-300 p-2 rounded flex justify-center items-center flex-col text-lg">
-                                            <div class="text-xl">
-                                                {item.data.title}
-                                            </div>
-                                            {item.data.description}
-                                        </div>
-                                    </div>
-                                </a>
+                                <BlogCard post={item} />
                             </Show>
                         </div>}
                     </For>
                     <Show when={props.blogs.length > count() + 2} fallback={<button class="px-1 opacity-50">{`>`}</button>}>
-                        <button onClick={add} class="px-1">{`>`}</button>
+                        <button onClick={add} class="px-1 font-bold text-xl">{`>`}</button>
                     </Show>
                 </div>
                 <div class="flex">

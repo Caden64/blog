@@ -1,13 +1,17 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import BlogCarousel from "@components/BlogCarousel.tsx";
+import BlogList from "@components/BlogList.astro";
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('blog');
 ---
 
 <MainLayout title="Caden's Blog">
-  <h1 class="text-xl font-semibold p-4">Index</h1>
   <div>
+    <div class="flex items-center justify-center text-3xl pt-2">
+      <h1>Blog Posts</h1>
+    </div>
     <BlogCarousel blogs={blogEntries} amount={blogEntries.length} client:idle />
+    <BlogList posts={blogEntries} />
   </div>
 </MainLayout>
