@@ -34,7 +34,13 @@ export default function BlogCarousel(props: any) {
                 </div>
                 <div class="flex">
                     <For each={props.blogs.slice(1, props.blogs.length - 1)} fallback={<div>loading...</div>}>
-                        {(_, index) => <button class="m-0.5 p-1 px-6 bg-orange-500" onClick={() => {setCount(index() + 1) } } /> }
+                        {(_, index) => (
+                            <>
+                                <Show when={ index() + 1 === count()} fallback={<button class="m-0.5 p-1 px-6 bg-orange-500" onClick={() => {setCount(index() + 1)}}/>}>
+                                    <button class="m-0.5 p-1 px-6 bg-blue-500" onClick={() => {setCount(index() + 1)}}/>
+                                </Show>
+                            </>
+                        )}
                     </For>
                 </div>
             </div>
