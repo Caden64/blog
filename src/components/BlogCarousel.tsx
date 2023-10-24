@@ -24,11 +24,14 @@ export default function BlogCarousel(props: any) {
                         {(item) => <div>
                             <Show when={item.data.id >= count() && item.data.id < count() + 3}>
                                 <a href={`blog/${item.slug}`} class="px-4">
-                                    <div class="px-4 flex flex-col">
-                                        <div class="flex justify-center">
-                                            {item.data.title}
+                                    <div class="px-4 flex flex-col py-4 my-8">
+                                        <div class="flex justify-center rounded bg-gray-100 border-gray-200 border">
+                                            <img src="/favicon.png" alt="whoa" width="125" height="125" />
                                         </div>
-                                        <div class="bg-gray-200 p-2 rounded flex justify-center items-center">
+                                        <div class="bg-gray-200 p-2 rounded flex justify-center items-center flex-col">
+                                            <div>
+                                                {item.data.title}
+                                            </div>
                                             {item.data.description}
                                         </div>
                                     </div>
