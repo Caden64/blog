@@ -21,7 +21,9 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout>
-<h1>{entry.data.title}</h1>
-    <img src={entry.data.image}  alt={entry.data.alt} />
-<Content />
+    <div>
+        <h1>{entry.data.title}</h1>
+        <img src={entry.data.image}  alt={entry.data.alt} />
+        <Content />
+    </div>
 </MainLayout>
