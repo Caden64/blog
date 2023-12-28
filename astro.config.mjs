@@ -1,14 +1,14 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import svelte from "@astrojs/svelte";
+import react from "@astrojs/react";
 
-import preact from "@astrojs/preact";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://caden32.com',
-  integrations: [tailwind(), sitemap(), svelte(), preact()],
+  integrations: [react(), tailwind({
+    applyBaseStyles: false,
+  })],
   markdown: {
     // syntaxHighlight: 'prism',
     extendDefaultPlugins: true
