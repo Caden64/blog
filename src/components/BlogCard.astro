@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card.jsx";
+
+interface Props {
+    title: string,
+    description: string,
+    image: string,
+    image_alt: string,
+}
+
+
+
+const { title, description, image, image_alt } = Astro.props;
+---
+
+<Card className="w-[140px] md:w-[240px] flex flex-col justify-center items-center bg-slate-50">
+    <CardHeader className="flex flex-col justify-center items-center">
+        <CardTitle className="text-xl">{title}</CardTitle>
+        <Image src={image} alt={image_alt} width="150" height="1" />
+    </CardHeader>
+    <CardContent>
+        <CardDescription>{description}</CardDescription>
+    </CardContent>
+</Card>
