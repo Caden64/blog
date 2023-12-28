@@ -1,6 +1,25 @@
 ---
 import '@/styles/globals.css'
 import { Button } from "@/components/ui/button.jsx"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card.jsx"
+import MainLayout from "../layouts/MainLayout.astro";
 ---
-<h1>Test</h1>
-<Button>Test</Button>
+<MainLayout title="main" description="test">
+    <h1 class="text-2xl text-emerald-400">Test wow</h1>
+    <div class="text-emerald-400">
+        <Card className="text-sky-500 w-[200px]">
+            <CardHeader>
+                <CardTitle>Test</CardTitle>
+                <CardDescription className="text-rose-400">Test Description</CardDescription>
+            </CardHeader>
+        </Card>
+        <Button className="text-emerald-400">Test</Button>
+    </div>
+</MainLayout>
