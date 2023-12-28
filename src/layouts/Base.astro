@@ -4,8 +4,20 @@ interface Props {
     description?: string;
 }
 const {title, description } = Astro.props;
+import { SEO } from "astro-seo";
 ---
 <head>
+    <SEO
+        title={title}
+        description={description}
+        openGraph={{
+            basic: {
+                title: title,
+                type: "website",
+                image: "alpha.caden32.com/assets/logo.png",
+            }
+        }}
+    />
     <meta charset="UTF-8"/>
     <link rel='icon' type='image/x-icon' href='/favicon.png' />
     <meta name="viewport" content="width=device-width" />
