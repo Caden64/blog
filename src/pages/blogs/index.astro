@@ -15,7 +15,7 @@ const  blogs  = await getCollection("blogs")
 ---
 <MainLayout title="blogs" description="All alvailable blogs">
     <h1>Test index page</h1>
-    <BlogCarousel blogs={blogs}/>
+    <BlogCarousel blogs={blogs} client:load/>
 
 
 </MainLayout>
