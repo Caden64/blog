@@ -1,3 +1,5 @@
+import { useStore } from '@nanostores/react'
+import { isDarkl } from "@/theme";
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 
@@ -10,12 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ModeToggle() {
+    const $isDarkl = useStore(isDarkl);
     const [theme, setThemeState] = React.useState<
         "theme-light" | "dark" | "system"
-    >("theme-light")
+    >($isDarkl ? "dark" : "theme-light")
 
     React.useEffect(() => {
         const isDarkMode = document.documentElement.classList.contains("dark")
+        isDarkl.set(isDarkMode);
         setThemeState(isDarkMode ? "dark" : "theme-light")
     }, [])
 
@@ -25,6 +29,7 @@ export function ModeToggle() {
             (theme === "system" &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches)
         document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+        isDarkl.set(isDark);
     }, [theme])
 
     return (
