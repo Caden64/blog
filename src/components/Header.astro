@@ -1,7 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import { ModeToggle } from "./ModeToggle.tsx";
 ---
-<div class="h-[50px] bg-sky-400 flex justify-between items-center px-8 dark:text-white">
-    <a href="/blogs">blog</a>
+<div class="h-[75px] bg-sky-400 flex justify-between items-center px-4 md:px-8 dark:text-white">
+    <div>
+        <a href="/" class="flex flex-row">
+            <Image src="/assets/logo.png" alt="logo" width="80" height="80" />
+        </a>
+    </div>
+    <div class="md:px-4 flex flex-row items-center justify-center mr-8">
+        <a href="/" class="md:pr-8 hidden md:flex">home</a>
+        <a href="/blogs">blog</a>
+    </div>
     <ModeToggle client:load />
 </div>
