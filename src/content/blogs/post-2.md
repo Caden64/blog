@@ -1,6 +1,7 @@
 ---
 title: Blog 2 
 description: This is a blog post.
+id: 2
 image:
   url: /assets/logo.png
   alt: Logo

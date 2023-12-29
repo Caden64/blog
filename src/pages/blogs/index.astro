@@ -2,27 +2,14 @@
 import '@/styles/globals.css'
 import {getCollection} from "astro:content";
 
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
 import MainLayout from "../../layouts/MainLayout.astro";
-import BlogCard from "../../components/BlogCard.astro";
 
 const  blogs  = await getCollection("blogs")
 ---
 <MainLayout title="blogs" description="All alvailable blogs">
     <h1>Test index page</h1>
-    <div class="flex md:flex-row flex-col items-center justify-center">
-        {blogs.map((blog) => (
-            <a href={`/blogs/${blog.slug}`}>
-                <div class="p-2">
-                    <BlogCard title={blog.data.title} description={blog.data.description} image={blog.data.image.url} image_alt={blog.data.image.alt} />
-                </div>
-            </a>
-        ))}
+    <div class="flex items-center justify-center">
+        <BlogCarousel blogs={blogs} client:load />
     </div>
+
 </MainLayout>
