@@ -1,6 +1,7 @@
 ---
-
+import { ModeToggle } from "./ModeToggle.tsx";
 ---
-<div class="h-[50px] bg-rose-500">
+<div class="h-[50px] bg-rose-500 flex justify-between items-center px-8 dark:text-white">
     <a href="/blogs">blog</a>
+    <ModeToggle client:load />
 </div>

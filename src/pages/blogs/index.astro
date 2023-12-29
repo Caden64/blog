@@ -14,8 +14,8 @@ import {BlogCarousel} from "../../components/BlogCarousel";
 const  blogs  = await getCollection("blogs")
 ---
 <MainLayout title="blogs" description="All alvailable blogs">
-    <h1>Test index page</h1>
-    <BlogCarousel blogs={blogs} client:load/>
-
-
+    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900 dark:text-white">
+        <h1>Test index page</h1>
+        <BlogCarousel blogs={blogs} client:load/>
+    </div>
 </MainLayout>
