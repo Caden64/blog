@@ -21,7 +21,7 @@ interface Props {
 const { title, description, image, image_alt } = Astro.props;
 ---
 
-<Card className="w-[140px] md:w-[240px] flex flex-col justify-center items-center bg-slate-50">
+<Card className="w-[200px] md:w-[240px] flex flex-col justify-center items-center bg-slate-50">
     <CardHeader className="flex flex-col justify-center items-center">
         <CardTitle className="text-xl">{title}</CardTitle>
         <Image src={image} alt={image_alt} width="150" height="1" />
