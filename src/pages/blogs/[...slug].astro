@@ -15,5 +15,7 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout title={entry.data.title} description={entry.data.description}>
-    <Content />
+    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900 dark:text-white">
+        <Content />
+    </div>
 </MainLayout>
