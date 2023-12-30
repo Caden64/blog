@@ -10,10 +10,10 @@ import {
     CardTitle,
 } from "@/components/ui/card.jsx"
 import MainLayout from "../layouts/MainLayout.astro";
-import BlogCard from "../components/BlogCard.astro";
+import {BC} from "../components/BC.tsx"
 ---
-<MainLayout title="main" description="test">
-    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900">
-        <BlogCard title="test blog title" description="test blog description" image="/assets/logo.png" image_alt="A white emoji person weraring blue glasses behind a sticker filled laptop" />
+<MainLayout title="home" description="home">
+    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900 flex items-center justify-center">
+        <BC title="test" description="test" image="/assets/logo.png" image_alt="image_alt"/>
     </div>
 </MainLayout>
