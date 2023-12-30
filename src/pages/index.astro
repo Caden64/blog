@@ -10,10 +10,13 @@ import {
     CardTitle,
 } from "@/components/ui/card.jsx"
 import MainLayout from "../layouts/MainLayout.astro";
-import {BC} from "../components/BC.tsx"
+import { BlogCarousel } from "../components/BlogCarousel.tsx";
+import {getCollection} from "astro:content";
+const blogs = await getCollection("blogs");
+let list = blogs.slice(0,3);
 ---
 <MainLayout title="home" description="home">
-    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900 flex items-center justify-center">
-        <BC title="test" description="test" image="/assets/logo.png" image_alt="image_alt"/>
+    <div class="bg-neutral-100 min-h-screen min w-screen p-8 dark:bg-neutral-900 flex items-center justify-center dark:text-white">
+        <BlogCarousel blogs={list} client:load />
     </div>
 </MainLayout>
