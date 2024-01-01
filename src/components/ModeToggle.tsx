@@ -15,7 +15,7 @@ export function ModeToggle() {
     const $isDarkl = useStore(isDarkl);
     const [theme, setThemeState] = React.useState<
         "theme-light" | "dark" | "system"
-    >($isDarkl ? "dark" : "theme-light")
+    >("system")
 
     React.useEffect(() => {
         const isDarkMode = document.documentElement.classList.contains("dark")

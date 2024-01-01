@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   site: 'https://caden32.com',
   integrations: [react(), tailwind({
     applyBaseStyles: false
